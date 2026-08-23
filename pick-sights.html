@@ -366,21 +366,21 @@
           <a href="map.html">行程地圖</a>
         </div>
         <h1>景點喜好挑選器</h1>
-        <p>瑞士 ＋ 意大利 · 針對 <strong>8 月底–9 月初</strong> · 每點有 <strong>YouTube 睇實景</strong> · ❤️ 鐘意／✕ 唔去 · 右邊匯總</p>
+        <p>瑞士 ＋ 意大利 · 針對 <strong>8 月底–9 月初</strong> · 每點有 <strong>YouTube 看實景</strong> · ❤️ 喜歡／✕ 不去 · 右邊匯總</p>
         <div class="top-row">
           <div class="filters">
             <button type="button" class="active" data-filter="all">全部</button>
             <button type="button" class="ch" data-filter="ch">🇨🇭 瑞士</button>
             <button type="button" class="it" data-filter="it">🇮🇹 意大利</button>
-            <button type="button" data-filter="liked">只睇 ❤️</button>
-            <button type="button" data-filter="unset">未揀</button>
+            <button type="button" data-filter="liked">只看 ❤️</button>
+            <button type="button" data-filter="unset">未選</button>
           </div>
           <button type="button" class="chip-btn" id="btn-reset">重置全部選擇</button>
         </div>
         <div class="note-bar">
-          已 <strong>skip</strong> 主要靠落雪先靚嘅地方（滑雪場冬景、冰雪童話鎮等）。
-          少女峰標為「可選」——8 月係<strong>終年冰川</strong>仍有雪，唔係低地落雪；唔鍾意高山凍可以 ✕。
-          相片為夏日／晴天實景參考（授權圖），唔保證同一日天氣。
+          已 <strong>skip</strong> 主要靠下雪才靚的地方（滑雪場冬景、冰雪童話鎮等）。
+          少女峰標為「可選」——8 月是<strong>終年冰川</strong>仍有雪，不是低地下雪；不喜歡高山凍可以 ✕。
+          相片為夏日／晴天實景參考（授權圖），不保證同一天天氣。
         </div>
       </header>
 
@@ -395,17 +395,17 @@
     <aside class="side">
       <div id="map"></div>
       <div class="side-body">
-        <h2>你嘅匯總</h2>
-        <p class="legend-map">地圖：綠=鐘意 · 黃=考慮 · 灰=唔去 · 紅/藍=未揀（瑞士/意）</p>
+        <h2>你的匯總</h2>
+        <p class="legend-map">地圖：綠=喜歡 · 黃=考慮 · 灰=不去 · 紅/藍=未選（瑞士/意）</p>
         <div class="stats">
-          <div class="stat like"><b id="n-like">0</b><span>鐘意</span></div>
+          <div class="stat like"><b id="n-like">0</b><span>喜歡</span></div>
           <div class="stat"><b id="n-maybe">0</b><span>考慮</span></div>
-          <div class="stat nope"><b id="n-nope">0</b><span>唔去</span></div>
+          <div class="stat nope"><b id="n-nope">0</b><span>不去</span></div>
         </div>
 
         <h2 style="font-size:13px;color:var(--like)">❤️ 我想去</h2>
         <ul class="summary-list" id="list-like"></ul>
-        <div class="empty" id="empty-like">未有——撳景點卡嘅「鐘意」</div>
+        <div class="empty" id="empty-like">未有——撳景點卡的「喜歡」</div>
 
         <h2 style="font-size:13px;color:#8a6a00;margin-top:12px">🤔 考慮</h2>
         <ul class="summary-list" id="list-maybe"></ul>
@@ -414,11 +414,11 @@
         <div class="side-actions">
           <button type="button" class="primary" id="btn-export">產生文字清單</button>
           <button type="button" id="btn-copy">複製清單</button>
-          <a class="btn" href="index.html">返去行程書</a>
+          <a class="btn" href="index.html">回去行程書</a>
         </div>
         <div class="export-box" id="export-box"></div>
         <p style="font-size:11.5px;color:var(--muted);margin-top:12px">
-          選擇會自動存喺呢部電腦瀏覽器（localStorage）。揀完可以截圖匯總，或者複製清單再叫我按你喜好改行程。
+          選擇會自動存在呢部電腦瀏覽器（localStorage）。選完可以截圖匯總，或者複製清單再叫我按你喜好改行程。
         </p>
       </div>
     </aside>
@@ -440,7 +440,7 @@
         tags: ['免費', '城市', '夜景都靚'],
         tagClass: ['free'],
         season: '8–9 月：木橋＋花＋湖，經典夏景',
-        desc: '瑞士最易打卡木橋。你去嘅時候係盛夏尾，橋上花槽、天鵝、老城都喺狀態，唔使等落雪。',
+        desc: '瑞士最易打卡木橋。你去的時候是盛夏尾，橋上花槽、天鵝、老城都在狀態，不用等下雪。',
         photos: ['pick-photos/lucerne_bridge_1.jpg', 'pick-photos/lucerne_bridge_2.jpg', 'pick-photos/lucerne_lake_1.jpg'],
       },
       {
@@ -453,7 +453,7 @@
         days: '半日–1 日',
         tags: ['湖', '輕鬆'],
         season: '8–9 月：水暖人多，日落好',
-        desc: '坐船睇阿爾卑斯遠影，或者純湖邊散步。比上山平、節奏慢，啱恢復時差。',
+        desc: '坐船看阿爾卑斯遠影，或者純湖邊散步。比上山平、節奏慢，啱恢復時差。',
         photos: ['pick-photos/lucerne_lake_1.jpg', 'pick-photos/lucerne_lake_2.jpg'],
       },
       {
@@ -465,8 +465,8 @@
         lat: 46.9790, lng: 8.2560,
         days: '1 日',
         tags: ['山', '纜車／齒軌'],
-        season: '8–9 月：多數綠草岩石，唔係白雪覆蓋',
-        desc: '夏天上山係「綠阿爾卑斯」而唔係滑雪海報。遠眺或見白峰尖。想 Freeze 雪地感覺就唔係呢度。',
+        season: '8–9 月：多數綠草岩石，不是白雪覆蓋',
+        desc: '夏天上山是「綠阿爾卑斯」而不是滑雪海報。遠眺或見白峰尖。想 Freeze 雪地感覺就不是這裡。',
         photos: ['pick-photos/pilatus_1.jpg', 'pick-photos/pilatus_2.jpg'],
       },
       {
@@ -476,11 +476,11 @@
         name: '⭐ Landwasser 高架橋（坐火車過）',
         city: '格勞賓登 · Filisur 附近',
         lat: 46.6810, lng: 9.6750,
-        days: '半日車程（含搭車）',
+        days: '半日車程（含乘車）',
         tags: ['火車', '必經線'],
         tagClass: ['train'],
         season: '8–9 月：綠谷＋石拱＋紅火車，夏日經典樣',
-        desc: '你講過瑞士主要想坐呢段。RhB 阿爾布拉線普通火車就過橋；往聖莫里茨坐右邊。唔靠落雪先靚。',
+        desc: '你講過瑞士主要想坐這段。RhB 阿爾布拉線普通火車就過橋；往聖莫里茨坐右邊。不靠下雪才靚。',
         photos: ['pick-photos/landwasser_1.jpg', 'pick-photos/landwasser_2.jpg', 'pick-photos/landwasser_3.jpg', 'pick-photos/landwasser2_1.jpg'],
       },
       {
@@ -494,7 +494,7 @@
         tags: ['火車', '過境'],
         tagClass: ['train'],
         season: '夏末風景線仍開，高處有冰川但沿線多數夏景',
-        desc: '世界遺產另一段，由 Engadin 落意大利。同 Landwasser 順路組合，唔使走回頭。',
+        desc: '世界遺產另一段，由 Engadin 下意大利。同 Landwasser 順路組合，不用走回頭。',
         photos: ['pick-photos/bernina_1.jpg', 'pick-photos/bernina_2.jpg'],
       },
       {
@@ -506,8 +506,8 @@
         lat: 46.4908, lng: 9.8355,
         days: '半日–1 日',
         tags: ['湖', '貴'],
-        season: '8–9 月：高山湖＋步行，唔係滑雪季',
-        desc: '夏天係湖邊同山徑，物價高。可住衛星鎮。若只為過橋可唔使留長。',
+        season: '8–9 月：高山湖＋步行，不是滑雪季',
+        desc: '夏天是湖邊同山徑，物價高。可住衛星鎮。若只為過橋可不用留長。',
         photos: ['pick-photos/stmoritz_1.jpg', 'pick-photos/stmoritz_2.jpg'],
       },
       {
@@ -520,7 +520,7 @@
         days: '半日',
         tags: ['城市', '轉乘'],
         season: '全年ok',
-        desc: 'RhB 門戶，老城細而舒服。多數當過路基地，唔係大打卡。',
+        desc: 'RhB 門戶，老城細而舒服。多數當過路基地，不是大打卡。',
         photos: ['pick-photos/chur_1.jpg', 'pick-photos/chur_2.jpg'],
       },
       {
@@ -533,7 +533,7 @@
         days: '1 日+',
         tags: ['湖', '山區基地'],
         season: '8–9 月：全綠＋遠峰；少女峰另計',
-        desc: '圖恩湖／布里恩茨湖之間，夏日綠色。去少女峰先要喺附近住。同 Landwasser 唔順路。',
+        desc: '圖恩湖／布里恩茨湖之間，夏日綠色。去少女峰才要在附近住。同 Landwasser 不順路。',
         photos: ['pick-photos/interlaken_1.jpg', 'pick-photos/interlaken_2.jpg'],
       },
       {
@@ -546,8 +546,8 @@
         days: '大半日–1 日',
         tags: ['冰川', '貴', '凍'],
         tagClass: ['hot'],
-        season: '8 月：山頂終年冰雪（高海拔冰川），山下係綠',
-        desc: '唔係「低地落雪先靚」，而係成日都有冰川。想踩雪影冰就啱；唔想凍／慳錢／想保 Landwasser 路線可以 ✕。',
+        season: '8 月：山頂終年冰雪（高海拔冰川），山下是綠',
+        desc: '不是「低地下雪才靚」，而是整天都有冰川。想踩雪影冰就啱；不想凍／省錢／想保 Landwasser 路線可以 ✕。',
         photos: ['pick-photos/jungfrau_1.jpg', 'pick-photos/jungfrau_2.jpg'],
       },
       {
@@ -560,7 +560,7 @@
         days: '半日',
         tags: ['過境', '城市'],
         season: '夏末湖邊有人游水、散步',
-        desc: '多數機場過路快閃。有半日可以舊城＋湖，唔使專程留兩晚。',
+        desc: '多數機場過路快閃。有半日可以舊城＋湖，不用專程留兩晚。',
         photos: ['pick-photos/zurich_1.jpg', 'pick-photos/zurich_2.jpg'],
       },
 
@@ -574,8 +574,8 @@
         lat: 45.4642, lng: 9.1900,
         days: '2–3 小時',
         tags: ['建築', '屋頂可選'],
-        season: '8–9 月：好熱好曬，早上去',
-        desc: '哥德式巨製。夏末人多，屋頂視野一流。同長廊一齊打卡。',
+        season: '8–9 月：很熱好曬，早上去',
+        desc: '哥德式巨製。夏末人多，屋頂視野一流。同長廊一起打卡。',
         photos: ['pick-photos/milan_duomo_1.jpg', 'pick-photos/milan_duomo_2.jpg'],
       },
       {
@@ -589,7 +589,7 @@
         tags: ['免費', '打卡'],
         tagClass: ['free'],
         season: '全年',
-        desc: '連大教堂廣場，拱廊影相。免費，順路。',
+        desc: '連大教堂廣場，拱廊拍照。免費，順路。',
         photos: ['pick-photos/milan_galleria_1.jpg', 'pick-photos/milan_galleria_2.jpg'],
       },
       {
@@ -601,7 +601,7 @@
         lat: 45.4480, lng: 9.1740,
         days: '一晚',
         tags: ['夜貓', 'Aperitivo'],
-        season: '夏末夜晚戶外位旺',
+        season: '夏末晚上戶外位旺',
         desc: '你夜貓最啱。Aperitivo 一杯連小食，bar hop 到 12 點。',
         photos: ['pick-photos/milan_galleria_2.jpg', 'pick-photos/milan_duomo_1.jpg'],
       },
@@ -615,7 +615,7 @@
         days: '2–3 小時',
         tags: ['必去', '夜景差天共地'],
         season: '8–9 月：極多人、熱；早／夜去好得多',
-        desc: '水城核心。建議早上去教堂，夜晚再影一次廣場。',
+        desc: '水城核心。建議早上去教堂，晚上再影一次廣場。',
         photos: ['pick-photos/venice_square_1.jpg', 'pick-photos/venice_square_2.jpg'],
       },
       {
@@ -628,7 +628,7 @@
         days: '半日',
         tags: ['船', '移動打卡'],
         season: '夏末水城最「威尼斯」',
-        desc: '坐 1 號船遊大運河，本身就係景點。比貢多拉平好多。',
+        desc: '坐 1 號船遊大運河，本身就是景點。比貢多拉平很多。',
         photos: ['pick-photos/venice_canal_1.jpg', 'pick-photos/venice_canal_2.jpg', 'pick-photos/venice_canal_3.jpg'],
       },
       {
@@ -681,8 +681,8 @@
         lat: 43.7230, lng: 10.3966,
         days: '半日',
         tags: ['打卡', '過路得'],
-        season: '夏末好熱，早上去',
-        desc: '你話要睇。廣場影塔免費；登塔另票。可由翡冷翠過路再落羅馬。',
+        season: '夏末很熱，早上去',
+        desc: '你話要看。廣場影塔免費；登塔另票。可由翡冷翠過路再下羅馬。',
         photos: ['pick-photos/pisa_1.jpg', 'pick-photos/pisa_2.jpg'],
       },
       {
@@ -695,7 +695,7 @@
         days: '2 小時',
         tags: ['必去', '要預約'],
         season: '石材吸熱，8–9 月極熱',
-        desc: '古羅馬代表。務必網上預約。夜晚外圍燈光都好影。',
+        desc: '古羅馬代表。務必網上預約。晚上外圍燈光都好影。',
         photos: ['pick-photos/rome_colosseum_1.jpg', 'pick-photos/rome_colosseum_2.jpg'],
       },
       {
@@ -709,7 +709,7 @@
         tags: ['免費', '夜必去'],
         tagClass: ['free'],
         season: '全年；夜景優於日景',
-        desc: '人山人海。建議夜晚再去一次，同日景差好遠。',
+        desc: '人山人海。建議晚上再去一次，同日景差很遠。',
         photos: ['pick-photos/rome_trevi_1.jpg', 'pick-photos/rome_trevi_2.jpg'],
       },
       {
@@ -735,7 +735,7 @@
         days: '一晚',
         tags: ['夜貓', '食'],
         season: '夏末戶外晚餐旺到深夜',
-        desc: '羅馬夜生活首選。巷仔、酒、街頭樂，啱你 12 點先瞓。',
+        desc: '羅馬夜生活首選。巷仔、酒、街頭樂，啱你 12 點才睡。',
         photos: ['pick-photos/rome_trastevere_1.jpg', 'pick-photos/rome_trastevere_2.jpg'],
       },
       {
@@ -748,7 +748,7 @@
         days: '半日–1 日',
         tags: ['博物館', '要預約'],
         season: '夏末極多人',
-        desc: '超經典但食時間。羅馬夜數少可以只影廣場外觀，博物館有心先入。',
+        desc: '超經典但食時間。羅馬夜數少可以只影廣場外觀，博物館有心才入。',
         photos: ['pick-photos/vatican_1.jpg', 'pick-photos/vatican_2.jpg'],
       },
       {
@@ -761,7 +761,7 @@
         days: '1–2 日',
         tags: ['海岸', '行山', '繞路'],
         tagClass: ['hot'],
-        season: '8–9 月：最靚季節之一，但好熱好擠',
+        season: '8–9 月：最靚季節之一，但很熱好擠',
         desc: '彩色崖岸村。夏末風景頂級，但同「北意高鐵線」稍繞，10 日行程難兼顧，當加分項。',
         photos: ['pick-photos/cinqueterre_1.jpg', 'pick-photos/cinqueterre_2.jpg'],
       },
@@ -774,7 +774,7 @@
         lat: 45.9425, lng: 9.2644,
         days: '1 日',
         tags: ['湖', '日歸'],
-        season: '夏末湖邊度假感',
+        season: '夏末湖哪裡假感',
         desc: '可由米蘭日歸。優雅但半日車，時間緊可 ✕。',
         photos: ['pick-photos/como_1.jpg', 'pick-photos/como_2.jpg'],
       },
@@ -788,7 +788,7 @@
         days: '半日–1 日',
         tags: ['古城', '可過路'],
         season: '夏末好行',
-        desc: '米蘭↔威尼斯之間可停。競技場、老城。想水城多啲可以 skip。',
+        desc: '米蘭↔威尼斯之間可停。競技場、老城。想水城多些可以 skip。',
         photos: ['pick-photos/verona_1.jpg', 'pick-photos/verona_2.jpg'],
       },
     ];
@@ -899,11 +899,11 @@
             <div class="city">${p.city} · 建議 ${p.days}</div>
             <p class="desc">${p.desc}</p>
             <div class="meta">${tags}<span class="tag">${p.season}</span></div>
-            <a class="yt-btn" href="${p.youtube}" target="_blank" rel="noopener">▶ YouTube 睇實景</a>
+            <a class="yt-btn" href="${p.youtube}" target="_blank" rel="noopener">▶ YouTube 看實景</a>
             <div class="actions">
-              <button type="button" class="like" data-pick="like" data-id="${p.id}">❤️ 鐘意</button>
+              <button type="button" class="like" data-pick="like" data-id="${p.id}">❤️ 喜歡</button>
               <button type="button" class="maybe" data-pick="maybe" data-id="${p.id}">🤔 考慮</button>
-              <button type="button" class="nope" data-pick="nope" data-id="${p.id}">✕ 唔去</button>
+              <button type="button" class="nope" data-pick="nope" data-id="${p.id}">✕ 不去</button>
             </div>
           </div>
         `;
@@ -1016,7 +1016,7 @@
     });
 
     document.getElementById('btn-reset').addEventListener('click', () => {
-      if (!confirm('清除全部鐘意／唔去選擇？')) return;
+      if (!confirm('清除全部喜歡／不去選擇？')) return;
       picks = {};
       localStorage.removeItem(STORAGE_KEY);
       document.querySelectorAll('.card').forEach(c => c.classList.remove('liked', 'noped', 'maybed'));
@@ -1032,9 +1032,9 @@
       liked.forEach(p => { t += `· ${p.name}（${p.city}）— ${p.days}\n`; });
       t += '\n🤔 考慮（' + maybed.length + '）\n';
       maybed.forEach(p => { t += `· ${p.name}（${p.city}）\n`; });
-      t += '\n✕ 唔去（' + noped.length + '）\n';
+      t += '\n✕ 不去（' + noped.length + '）\n';
       noped.forEach(p => { t += `· ${p.name}\n`; });
-      t += '\n— 用呢份清單再排 10 日行程 —';
+      t += '\n— 用這份清單再排 10 日行程 —';
       return t;
     }
 
@@ -1049,7 +1049,7 @@
       document.getElementById('export-box').classList.add('show');
       try {
         await navigator.clipboard.writeText(t);
-        alert('已複製清單到剪貼板！可以貼俾我幫你改行程。');
+        alert('已複製清單到剪貼板！可以貼給我幫你改行程。');
       } catch {
         alert('請手動選取右邊文字複製。');
       }
