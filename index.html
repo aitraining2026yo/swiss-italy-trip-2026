@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>瑞士 + 意大利 10 日自由行計劃書｜2026 香港出發</title>
+  <meta name="description" content="香港獨行旅客：瑞士＋意大利 10 日直航自由行計劃書，含航班、火車、住宿、預算與逐日行程。" />
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --paper: #fffdf9;
+      --ink: #1c2430;
+      --muted: #5b6573;
+      --line: #e6dfd4;
+      --red: #c23b3b;
+      --swiss: #d62828;
+      --italy-green: #2d6a4f;
+      --italy-red: #c1121f;
+      --gold: #b8860b;
+      --blue: #1d4e89;
+      --soft-blue: #e8f0fa;
+      --soft-red: #fceeee;
+      --soft-green: #eaf4ef;
+      --soft-gold: #faf3e0;
+      --shadow: 0 10px 30px rgba(28, 36, 48, 0.08);
+      --radius: 16px;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #fff7e8 0, transparent 40%),
+        radial-gradient(circle at top right, #eef5ff 0, transparent 35%),
+        var(--bg);
+      line-height: 1.65;
+      font-size: 15.5px;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a.sight {
+      font-weight: 700;
+      border-bottom: 1px dashed rgba(29, 78, 137, 0.35);
+    }
+    a.sight:hover {
+      border-bottom-style: solid;
+      color: #0f3460;
+    }
+    a.sight::after {
+      content: " 📷";
+      font-size: 0.85em;
+      opacity: 0.75;
+      font-weight: 400;
+      margin-left: 2px;
+    }
+
+    /* 景點相簿 */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 12px 0 18px;
+    }
+    a.photo-card {
+      display: block;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #fff;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 14px rgba(28, 36, 48, 0.06);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    a.photo-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(28, 36, 48, 0.12);
+      text-decoration: none;
+    }
+    a.photo-card .pic {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #e8e4dc;
+    }
+    a.photo-card .meta {
+      padding: 10px 12px 12px;
+    }
+    a.photo-card .meta .name {
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+    a.photo-card .meta .city {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    a.photo-card .meta .hint {
+      font-size: 11px;
+      color: var(--blue);
+      margin-top: 6px;
+      font-weight: 600;
+    }
+    a.photo-card .meta .hint::after { content: " →"; }
+    .photo-card .badge-row {
+      position: absolute;
+      top: 8px; left: 8px;
+      z-index: 1;
+    }
+    a.photo-card { position: relative; }
+    a.photo-card .badge-row .tag {
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 1px 4px rgba(0,0,0,.12);
+    }
+    .photo-note {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 253, 249, 0.92);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand .flag {
+      width: 28px; height: 18px; border-radius: 3px;
+      background: linear-gradient(90deg, #2d6a4f 33%, #fff 33% 66%, #c1121f 66%);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+      position: relative;
+    }
+    .brand .flag::after {
+      content: "";
+      position: absolute;
+      left: -10px; top: 0;
+      width: 18px; height: 18px;
+      border-radius: 3px;
+      background:
+        linear-gradient(#fff,#fff) center/55% 18% no-repeat,
+        linear-gradient(#fff,#fff) center/18% 55% no-repeat,
+        #d62828;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .nav a {
+      font-size: 12.5px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav a:hover { color: var(--ink); border-color: #cfc6b8; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 18px 80px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1d3557 0%, #457b9d 55%, #a8dadc 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 34px 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -40px; bottom: -50px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.28);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 720px;
+      opacity: .95;
+      font-size: 15px;
+    }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .hero-meta .card {
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .hero-meta .k { font-size: 11px; opacity: .85; }
+    .hero-meta .v { font-weight: 700; margin-top: 2px; font-size: 14px; }
+
+    .confirm {
+      margin-top: 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+    .confirm h2 { margin: 0 0 10px; font-size: 18px; }
+    .confirm ol { margin: 0; padding-left: 20px; }
+    .confirm li { margin: 4px 0; }
+
+    section {
+      margin-top: 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: var(--shadow);
+    }
+    section h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h2 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px; height: 30px;
+      border-radius: 9px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    h3 {
+      margin: 22px 0 10px;
+      font-size: 17px;
+      color: var(--ink);
+      border-left: 4px solid var(--gold);
+      padding-left: 10px;
+    }
+    h4 {
+      margin: 16px 0 8px;
+      font-size: 15px;
+    }
+    p { margin: 8px 0; color: var(--ink); }
+    .muted { color: var(--muted); }
+    .small { font-size: 13px; color: var(--muted); }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      vertical-align: middle;
+    }
+    .tag.must { background: var(--soft-red); color: var(--red); }
+    .tag.alt { background: var(--soft-gold); color: #8a6a00; }
+    .tag.ok { background: var(--soft-green); color: var(--italy-green); }
+    .tag.warn { background: #fff3cd; color: #856404; }
+    .tag.fix { background: var(--soft-blue); color: var(--blue); }
+
+    .route-line {
+      background: linear-gradient(90deg, var(--soft-red), var(--soft-blue), var(--soft-green));
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin: 10px 0 14px;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f3efe8;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #fcfaf7; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    ul, ol { margin: 8px 0; padding-left: 20px; }
+    li { margin: 4px 0; }
+
+    .day {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 16px 0;
+      background: #fff;
+    }
+    .day-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--line);
+    }
+    .day-head h3 {
+      margin: 0;
+      border: none;
+      padding: 0;
+      font-size: 18px;
+    }
+    .day-theme {
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 720px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      .nav { display: none; }
+    }
+    .box {
+      background: #faf8f4;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .box.red { background: var(--soft-red); border-color: #f0cfcf; }
+    .box.green { background: var(--soft-green); border-color: #cfe5d9; }
+    .box.blue { background: var(--soft-blue); border-color: #cddff3; }
+    .box.gold { background: var(--soft-gold); border-color: #ead9a8; }
+    .box strong.label {
+      display: block;
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .timeline {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+    .timeline li {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0ebe3;
+      margin: 0;
+    }
+    .timeline li:last-child { border-bottom: none; }
+    .timeline .t {
+      font-weight: 800;
+      color: var(--blue);
+      font-variant-numeric: tabular-nums;
+      font-size: 13px;
+    }
+
+    .budget-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 720px) {
+      .budget-compare { grid-template-columns: 1fr; }
+    }
+    .budget-card {
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid var(--line);
+    }
+    .budget-card.low {
+      background: linear-gradient(180deg, #eef8f1, #fff);
+      border-color: #c5dfcf;
+    }
+    .budget-card.high {
+      background: linear-gradient(180deg, #eef3fb, #fff);
+      border-color: #c7d7ec;
+    }
+    .budget-card h3 {
+      margin: 0 0 6px;
+      border: none;
+      padding: 0;
+    }
+    .budget-total {
+      font-size: 28px;
+      font-weight: 800;
+      margin: 4px 0 10px;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .check-item {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .check-item h4 { margin: 0 0 8px; color: var(--blue); }
+    .check-item label {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 13.5px;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    .check-item input { margin-top: 3px; }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding: 12px 12px 12px 52px;
+      margin: 8px 0;
+      background: #faf8f4;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 12px; top: 12px;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12.5px;
+      padding: 0 10px;
+    }
+
+    .print-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12.5px;
+      cursor: pointer;
+      color: var(--ink);
+    }
+    .print-btn:hover { background: #f7f4ef; }
+
+    @media print {
+      .topbar, .print-btn { display: none !important; }
+      body { background: #fff; }
+      section, .hero, .confirm, .day { box-shadow: none; break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="flag" aria-hidden="true"></span>
+        瑞士＋意大利｜10 日計劃書
+      </div>
+      <nav class="nav">
+        <a href="#overview">總覽</a>
+        <a href="map.html">地圖</a>
+        <a href="pick-sights.html">喜好挑選</a>
+        <a href="plan-15day.html">15日版</a>
+        <a href="#flights">航班</a>
+        <a href="#sights">必去</a>
+        <a href="august-photos.html">8月相</a>
+        <a href="#itinerary">逐日</a>
+        <a href="#nightlife">夜晚</a>
+        <a href="#transport">交通</a>
+        <a href="#stay">住宿</a>
+        <a href="#budget">預算</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#risk">風險</a>
+      </nav>
+      <button class="print-btn" onclick="window.print()">列印 / PDF</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="badge">瑞士 4 晚 + Landwasser · 比薩 · 直航 · HKD 3–4 萬 · 2026 夏</div>
+      <h1>瑞士 ＋ 意大利<br />10 日自由行計劃書</h1>
+      <p>
+        路線：<strong>HKG → ZRH → <u>琉森 2 晚</u> → 庫爾 → <u>Landwasser</u> → 聖莫里茨 → Bernina → Tirano → 米蘭 → 威尼斯 → 翡冷翠 → 比薩 → 羅馬 → HKG</strong><br />
+        日期骨架：<strong>2026-08-21 夜機 → 08-22 抵瑞士 → 09-01 抵港</strong>。瑞士 <strong>+2 晚琉森</strong>（湖城）+ Landwasser 火車核心；意大利略壓縮羅馬緩衝。
+      </p>
+      <div class="hero-meta">
+        <div class="card"><div class="k">總日數</div><div class="v">約 10–11 日</div></div>
+        <div class="card"><div class="k">機票要求</div><div class="v">必須直航</div></div>
+        <div class="card"><div class="k">預算區間</div><div class="v">HKD 30k–40k</div></div>
+        <div class="card"><div class="k">住宿風格</div><div class="v">青旅／私人房優先</div></div>
+      </div>
+    </header>
+
+    <!-- CONFIRM -->
+    <div class="confirm" id="confirm">
+      <h2>✅ 先確認我對你需求嘅理解（5 點）</h2>
+      <ol>
+        <li><strong>日期</strong>：可 2026-08-21 夜晚／凌晨離開香港；最遲 <strong>2026-09-01 抵港</strong>；09-02 開工，回程唔好趕到冇緩衝。</li>
+        <li><strong>目的地</strong>：瑞士 ＋ 意大利<strong>兩國都要去</strong>，約 10 日，節奏可稍緊湊但不能純趕路。</li>
+        <li><strong>機票</strong>：香港往返歐洲段<strong>必須直航</strong>（歐洲境內可火車／短途）。</li>
+        <li><strong>預算</strong>：總額 <strong>HKD 30,000–40,000（含來回機票）</strong>；可住青旅；一日可食一餐「好少少」。</li>
+        <li><strong>旅伴</strong>：獨行；優先安全、交通方便；輸出要可直接下單執行。</li>
+      </ol>
+      <p class="small" style="margin-top:12px">
+        <strong>建議進出港組合：</strong>去程 <span class="tag fix">HKG→ZRH 國泰直航</span>　回程 <span class="tag fix">FCO→HKG 國泰直航</span><br />
+        <strong>路線骨架（瑞士加厚 + Landwasser）：</strong>蘇黎世進 → <strong>琉森 2 晚</strong> → 庫爾 → <strong>Landwasser</strong> → 聖莫里茨 → Bernina → Tirano → 米蘭 → 威尼斯 → 翡冷翠 → <strong>比薩</strong> → 羅馬出。<br />
+        仍<strong>由北向南、零折返</strong>；瑞士約 <strong>4 晚</strong>、意大利約 <strong>6 晚</strong>，兩國感覺平衡啲。
+      </p>
+    </div>
+
+    <!-- 0. OVERVIEW -->
+    <section id="overview">
+      <h2><span class="num">0</span> 一頁總覽</h2>
+
+      <div class="route-line">
+        HKG → ZRH → <strong>Luzern×2</strong> → Chur → <strong>Landwasser</strong> → St.Moritz → Bernina → Tirano → Milano → Venezia → Firenze → <strong>Pisa</strong> → Roma → HKG
+        <div style="margin-top:8px;font-weight:600;font-size:13px">
+          📍 <a href="map.html" style="color:inherit;text-decoration:underline">打開互動地圖</a>（已改為 Landwasser／Bernina 線）
+        </div>
+      </div>
+
+      <div class="box red" style="margin-bottom:14px">
+        <strong class="label">同舊版有咩分別？（你話主要想坐 Landwasser）</strong>
+        <ul>
+          <li>✅ <strong>瑞士 4 晚：</strong>琉森 2 + 庫爾 1 + Engadin 1（湖城 + Landwasser）</li>
+          <li>✅ <strong>核心火車：</strong>Landwasser + Bernina 入意大利</li>
+          <li>✅ <strong>比薩斜塔</strong>：翡冷翠→羅馬過路半日</li>
+          <li>❌ <strong>仍刪：</strong>少女峰、因特拉肯（時間換咗琉森 + Landwasser）</li>
+          <li>🇮🇹 意大利略壓縮：羅馬約 2 晚（仍夠核心 + 返工緩衝）</li>
+        </ul>
+      </div>
+
+      <h3>日期總表（Landwasser 主軸）</h3>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>日</th>
+              <th>日期</th>
+              <th>城市</th>
+              <th>睡眠地</th>
+              <th>當日主題</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Day 0</td><td>08-21（五）</td><td>香港</td><td>機上</td><td>夜機直航飛蘇黎世</td></tr>
+            <tr><td>Day 1</td><td>08-22（六）</td><td>蘇黎世 → <strong>琉森</strong></td><td><strong>琉森</strong></td><td>抵達 + 卡佩爾橋湖城暖身 + 夜</td></tr>
+            <tr><td>Day 2</td><td>08-23（日）</td><td>琉森</td><td><strong>琉森</strong></td><td>湖／皮拉圖斯（二選一）+ 夜 bar</td></tr>
+            <tr><td>Day 3</td><td>08-24（一）</td><td>琉森 → 庫爾</td><td><strong>庫爾</strong></td><td>轉往 RhB 門戶</td></tr>
+            <tr><td>Day 4</td><td>08-25（二）</td><td>庫爾 → 聖莫里茨</td><td><strong>Engadin</strong></td><td>⭐ <strong>Landwasser 高架橋</strong></td></tr>
+            <tr><td>Day 5</td><td>08-26（三）</td><td>聖莫里茨 → Tirano → 米蘭</td><td>米蘭</td><td>Bernina 入意 + Navigli 夜</td></tr>
+            <tr><td>Day 6</td><td>08-27（四）</td><td>米蘭 → 威尼斯</td><td>威尼斯</td><td>米蘭上午 + 水城夜</td></tr>
+            <tr><td>Day 7</td><td>08-28（五）</td><td>威尼斯</td><td>威尼斯</td><td>水城全日 + Campo 夜</td></tr>
+            <tr><td>Day 8</td><td>08-29（六）</td><td>威尼斯 → 佛羅倫斯</td><td>佛羅倫斯</td><td>翡冷翠精華 + 夜</td></tr>
+            <tr><td>Day 9</td><td>08-30（日）</td><td>翡冷翠 → <strong>比薩</strong> → 羅馬</td><td>羅馬</td><td>⭐ 斜塔過路 + 羅馬夜</td></tr>
+            <tr><td>Day 10</td><td>08-31（一）</td><td>羅馬</td><td>羅馬</td><td>古羅馬核心 + 最後一夜</td></tr>
+            <tr><td>Day 11</td><td>09-01（二）</td><td>羅馬 → 香港</td><td>抵港</td><td>FCO 直航 · 09-02 開工</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted">瑞士 4 晚／意大利約 6 晚。羅馬只 2 晚：D9 夜抵 + D10 全日 + D11 起飛——選 9/1 午／午後機較穩。</p>
+
+      <div class="grid-2">
+        <div class="box green">
+          <strong class="label">總預算結論</strong>
+          節儉約 <strong>HKD 31,000–34,000</strong>（無少女峰大票）；舒適（Engadin 住宿稍貴 + 夜飲）約 <strong>HKD 36,000–40,000</strong>。主風險：機票 + <strong>聖莫里茨物價</strong>。
+        </div>
+        <div class="box gold">
+          <strong class="label">節奏判斷</strong>
+          瑞士約 <strong>4 晚</strong>（琉森 2 + 庫爾 1 + Engadin 1）／意大利約 <strong>6 晚</strong>。兩國比例接近；夜貓主力仍在意國。
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. FLIGHTS -->
+    <section id="flights">
+      <h2><span class="num">1</span> 航班方案（必須直航）</h2>
+      <p class="muted small">
+        ⚠️ 2026 年 8 月實際班表／票價會變；以下為<strong>現時國泰常規直航骨架 + 歷史旺季參考價</strong>。落單前請上
+        <a href="https://www.cathaypacific.com/cx/zh_HK/index.html" target="_blank" rel="noopener">國泰官網</a>
+        或 Skyscanner 再確認航班號、時間與總價。標「需出發前再查」。
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>方案</th>
+              <th>航段</th>
+              <th>參考航班／時間</th>
+              <th>機場</th>
+              <th>飛行時間</th>
+              <th>參考來回價</th>
+              <th>行李</th>
+              <th>推薦度</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>A 主推</strong><br /><span class="tag ok">推薦</span></td>
+              <td>去：HKG→ZRH<br />回：FCO→HKG</td>
+              <td>
+                去：約 8/21 晚或 8/22 清晨抵 ZRH（約 12.5–13h）<br />
+                回：約 9/1 日機由 FCO 起飛，當晚／翌日清晨抵 HKG<br />
+                <span class="small">航班號常見如 CX 系列蘇黎世／羅馬線，需再查</span>
+              </td>
+              <td>ZRH 進<br />FCO 出</td>
+              <td>去 ~12h45<br />回 ~12h</td>
+              <td><strong>約 $8,500–13,000</strong><br /><span class="small">Economy Light/Essential 旺季</span></td>
+              <td>Light 可能無托運；Essential 通常 23kg×1（需確認）</td>
+              <td>⭐⭐⭐⭐⭐<br />路線最順、9/2 開工最穩</td>
+            </tr>
+            <tr>
+              <td><strong>B 備選</strong></td>
+              <td>去：HKG→MXP<br />回：ZRH→HKG</td>
+              <td>反向：意大利進、瑞士出（要由南返北，折返較多）</td>
+              <td>MXP 進<br />ZRH 出</td>
+              <td>相似</td>
+              <td>約 $9,000–14,000</td>
+              <td>同上</td>
+              <td>⭐⭐⭐<br />只適合想先玩意國</td>
+            </tr>
+            <tr>
+              <td><strong>C 備選</strong></td>
+              <td>來回都經米蘭或羅馬</td>
+              <td>去 HKG→MXP／FCO，回同城<br />瑞士段全靠火車來回</td>
+              <td>MXP 或 FCO</td>
+              <td>相似</td>
+              <td>有時較平</td>
+              <td>同上</td>
+              <td>⭐⭐<br />瑞士來回折返多，唔推</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="box blue">
+          <strong class="label">主方案 A 點解啱你</strong>
+          <ul>
+            <li>ZRH 進 → 瑞士山區 → 南下意大利 → FCO 出：<strong>零折返</strong></li>
+            <li>9/1 由羅馬起飛，通常可安排<strong>日機／午後機</strong>，當日或翌日清晨抵港，09-02 開工有緩衝</li>
+            <li>國泰直航、港人熟、地勤中文支援較好，獨行安心</li>
+            <li>ZRH 火車站直達市區，轉琉森好方便</li>
+          </ul>
+        </div>
+        <div class="box red">
+          <strong class="label">9/2 開工會唔會太趕？</strong>
+          <ul>
+            <li><strong>理想</strong>：選 9/1 抵港時間 ≤ 晚上 10 點，或 9/1 深夜／9/2 清晨抵港但預留睡幾粒鐘</li>
+            <li><strong>最穩</strong>：回程選 9/1 歐洲日機，9/1 晚或 9/2 清晨到 HKG → 當日開工前有至少半日緩衝</li>
+            <li>❌ 唔好選 9/1 深夜先喺歐洲起飛、9/2 午後先到嘅班——開工太鬼死趕</li>
+            <li>落單時<strong>以「香港到達時間」為準</strong>篩選</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>落單前動作</h3>
+      <ol>
+        <li>上國泰官網搜：去程 <strong>2026-08-21 / 08-22</strong> HKG–ZRH；回程 <strong>2026-09-01</strong> FCO–HKG（可試 Open-jaw 開式機票）。</li>
+        <li>比較 Light vs Essential：托運行李差價通常抵過機場買。</li>
+        <li>總機票目標：<strong>來回 ≤ HKD 11,000</strong> 最舒服；若 >13,000 要砍住宿／餐飲。</li>
+        <li>比價：<a href="https://www.skyscanner.com.hk" target="_blank" rel="noopener">Skyscanner</a>、<a href="https://www.google.com/travel/flights" target="_blank" rel="noopener">Google Flights</a>（最終仍以航司官網為準）。</li>
+      </ol>
+    </section>
+
+    <!-- 2. SIGHTS -->
+    <section id="sights">
+      <h2><span class="num">2</span> 必去景點清單</h2>
+      <p class="photo-note">
+        👇 想睇<strong>8 月／夏季真實樣</strong>：請打開
+        <a href="august-photos.html"><strong>📷 8 月實景相冊（本地相片）</strong></a>
+        ——已標清邊度有冰川雪、邊度只係綠山。下面卡片亦改用夏景縮圖；撳卡片可開 Google 圖片睇更多。
+      </p>
+
+      <div class="box blue" id="august-snow">
+        <strong class="label">⚠️ 8 月去有冇雪？——講清楚，唔好被相誤導</strong>
+        <p>網上相好多係<strong>永久冰川／冬天影</strong>。你 8 月下旬去，實情係：</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>景點</th>
+                <th>海拔大概</th>
+                <th>8 月會見到咩</th>
+                <th>相簿相可唔可靠</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>少女峰 Jungfraujoch</strong></td>
+                <td>~3,454 m</td>
+                <td>✅ <strong>有冰有雪</strong>（冰川終年存在）。氣溫常約 0–10°C，風大更凍。雪地／冰宮都有，但唔係「大雪封山」感覺，係<strong>高海拔冰川景</strong>。</td>
+                <td>可靠——夏天上山都係白雪冰川</td>
+              </tr>
+              <tr>
+                <td>皮拉圖斯／瑞吉</td>
+                <td>~1,800–2,100 m</td>
+                <td>❌ 通常<strong>冇積雪</strong>；綠草、岩石、遠眺高山。極偶山頂留少許殘雪，唔好當必見。</td>
+                <td>若相全白，多數係冬相——8 月唔會咁</td>
+              </tr>
+              <tr>
+                <td>Harder Kulm／因特拉肯湖邊</td>
+                <td>湖邊 ~500 m；觀景台 ~1,300 m</td>
+                <td>❌ <strong>夏天綠色</strong>；遠景或見雪山尖，腳下唔踩雪</td>
+                <td>同上</td>
+              </tr>
+              <tr>
+                <td>琉森／蘇黎世／米蘭…意大利</td>
+                <td>低</td>
+                <td>❌ 盛夏，熱、綠、無雪（威尼斯羅馬 8 月仲好熱）</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>馬特洪峰（本行程冇去）</td>
+                <td>峰頂極高</td>
+                <td>遠眺峰頂終年有雪，但山谷 8 月係夏日綠地</td>
+                <td>峰頂白雪可靠</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li><strong>唯一「必見冰雪」：少女峰全日</strong>——8 月都係旺季去冰川，你見到嘅係<strong>終年不化嘅雪同冰</strong>，唔係低地落雪。</li>
+          <li><strong>皮拉圖斯／瑞吉相</strong>：請當「夏日高山＋湖景」；若 Google 相出面全白雪，多數唔係你 8 月會見到嘅樣子。</li>
+          <li><strong>著裝：</strong>山下 T-shirt 可以，上少女峰要<strong>厚外套＋長褲＋手套帽可選</strong>；太陽眼鏡同防曬必備（雪面反光好易曬傷）。運動鞋夠，唔使雪鞋。</li>
+          <li><strong>天氣風險：</strong>山頂有雲就睇唔到景；出發當日睇 webcam／天氣預報，唔好只信「8 月一定靚天」。</li>
+        </ul>
+      </div>
+
+      <h3>🇨🇭 瑞士必去（本行程覆蓋）— 相簿</h3>
+      <div class="photo-grid">
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Chapel+Bridge+Lucerne+summer">
+          <span class="badge-row"><span class="tag must">必須 · 夏</span></span>
+          <img class="pic" loading="lazy" alt="卡佩爾橋夏" src="photos-august/lucerne_summer.jpg" />
+          <div class="meta">
+            <div class="name">卡佩爾橋（夏日實景）</div>
+            <div class="city">琉森 · 無雪 · 花＋天鵝</div>
+            <div class="hint">開 Google 夏相</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Mount+Pilatus+summer+green">
+          <span class="badge-row"><span class="tag must">必須 · 夏</span></span>
+          <img class="pic" loading="lazy" alt="皮拉圖斯夏" src="photos-august/pilatus_summer.jpg" />
+          <div class="meta">
+            <div class="name">皮拉圖斯（夏：岩石＋綠草）</div>
+            <div class="city">通常無積雪 · 4–6h</div>
+            <div class="hint">開 Google 夏相</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Mount+Rigi+summer">
+          <span class="badge-row"><span class="tag must">二選一 · 夏</span></span>
+          <img class="pic" loading="lazy" alt="瑞吉山夏" src="photos-august/rigi_summer.jpg" />
+          <div class="meta">
+            <div class="name">瑞吉山（夏景）</div>
+            <div class="city">皮拉圖斯備選 · 綠山</div>
+            <div class="hint">開 Google 夏相</div>
+          </div>
+        </a>
+        <a class="photo-card" href="august-photos.html#jungfrau-time">
+          <span class="badge-row"><span class="tag must">必須 · 8月</span></span>
+          <img class="pic" loading="lazy" alt="少女峰8月" src="photos-august/jungfrau_aug.jpg" />
+          <div class="meta">
+            <div class="name">少女峰區（8/23 實拍）</div>
+            <div class="city">山下綠 ＋ 峰頂終年雪 · 大半日即可</div>
+            <div class="hint">睇相冊 ＋ 要幾耐說明</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Jungfraujoch+Sphinx+summer">
+          <span class="badge-row"><span class="tag must">山頂雪</span></span>
+          <img class="pic" loading="lazy" alt="Sphinx" src="photos-august/jungfraujoch_top.jpg" />
+          <div class="meta">
+            <div class="name">Jungfraujoch 山頂 Sphinx</div>
+            <div class="city">終年有雪 · 8 月一樣</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Interlaken+summer+lake">
+          <span class="badge-row"><span class="tag must">夏 · 無雪</span></span>
+          <img class="pic" loading="lazy" alt="因特拉肯" src="photos-august/interlaken_summer.jpg" />
+          <div class="meta">
+            <div class="name">因特拉肯湖邊（夏）</div>
+            <div class="city">全綠 · 唔係冰雪城</div>
+            <div class="hint">開 Google 夏相</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Harder+Kulm+summer">
+          <span class="badge-row"><span class="tag alt">次選 · 夏</span></span>
+          <img class="pic" loading="lazy" alt="Harder Kulm" src="photos-august/harder_summer.jpg" />
+          <div class="meta">
+            <div class="name">Harder Kulm（夏）</div>
+            <div class="city">觀景台 · 可短袖</div>
+            <div class="hint">開 Google 夏相</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Zurich+old+town+Bahnhofstrasse">
+          <span class="badge-row"><span class="tag alt">次選</span></span>
+          <img class="pic" loading="lazy" alt="蘇黎世"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Z%C3%BCrich%20Altstadt.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Zurich.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">蘇黎世舊城／班霍夫大街</div>
+            <div class="city">蘇黎世 · 過境 2–3h · 免費</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Matterhorn+Zermatt">
+          <span class="badge-row"><span class="tag warn">可刪</span></span>
+          <img class="pic" loading="lazy" alt="馬特洪峰"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Matterhorn%20from%20Domh%C3%BCtte%20-%202.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Matterhorn.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">馬特洪峰／采爾馬特</div>
+            <div class="city">采爾馬特 · 1–2 日 · 本行程不排</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="box green" id="landwasser">
+        <strong class="label">✅ 本版核心：Landwasser Viaduct（Day 2）</strong>
+        <div class="photo-grid" style="margin-top:12px;margin-bottom:12px;max-width:320px">
+          <a class="photo-card" target="_blank" rel="noopener"
+             href="https://www.google.com/search?tbm=isch&amp;q=Landwasser+Viaduct+train+RhB+summer">
+            <img class="pic" loading="lazy" alt="Landwasser Viaduct"
+                 src="photos-august/landwasser.jpg" />
+            <div class="meta">
+              <div class="name">Landwasser Viaduct</div>
+              <div class="city">RhB 火車過橋 · Day 2 核心</div>
+              <div class="hint">開 Google 睇更多相</div>
+            </div>
+          </a>
+        </div>
+        <ul>
+          <li><strong>路線：</strong>庫爾 → RhB 阿爾布拉線 → <strong>過橋</strong> → 聖莫里茨（約 2h）</li>
+          <li><strong>座位：</strong>往聖莫里茨方向坐<strong>右邊</strong>（順行）</li>
+          <li><strong>之後：</strong>Bernina 落 Tirano 入意大利——順路、唔折返</li>
+          <li><strong>取捨：</strong>已加返琉森 2 晚；仍刪少女峰／因特拉肯</li>
+        </ul>
+      </div>
+
+      <h3>🇮🇹 意大利必去（本行程覆蓋）— 相簿</h3>
+      <div class="photo-grid">
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Milan+Cathedral+Duomo+rooftop">
+          <span class="badge-row"><span class="tag must">必須</span></span>
+          <img class="pic" loading="lazy" alt="米蘭大教堂"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Milan%20Cathedral%20from%20Piazza%20del%20Duomo.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Duomo%20di%20Milano.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">米蘭大教堂 Duomo</div>
+            <div class="city">米蘭 · 2–3h · 屋頂約 $130–200</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Galleria+Vittorio+Emanuele+II+Milan">
+          <span class="badge-row"><span class="tag must">必須</span></span>
+          <img class="pic" loading="lazy" alt="埃曼紐二世長廊"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Galleria%20Vittorio%20Emanuele%20II%20(Milan)%20-%20Interior.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Galleria%20Vittorio%20Emanuele%20II.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">埃曼紐二世長廊</div>
+            <div class="city">米蘭 · 45 分 · 免費</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=St+Mark%27s+Square+Venice+Basilica">
+          <span class="badge-row"><span class="tag must">必須</span></span>
+          <img class="pic" loading="lazy" alt="聖馬可廣場"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Piazza%20San%20Marco%20(Venice).jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/St%20Mark%27s%20Square.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">聖馬可廣場 + 大教堂</div>
+            <div class="city">威尼斯 · 2–3h</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Grand+Canal+Venice+Rialto+Bridge">
+          <span class="badge-row"><span class="tag must">必須</span></span>
+          <img class="pic" loading="lazy" alt="大運河里阿爾托"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Rialto%20bridge%20as%20seen%20from%20water.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Rialto%20Bridge.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">大運河／里阿爾托橋</div>
+            <div class="city">威尼斯 · 半日 · 船票約 $200–250</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Gondola+Venice+canal">
+          <span class="badge-row"><span class="tag alt">次選</span></span>
+          <img class="pic" loading="lazy" alt="貢多拉"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Gondola%20ride%20in%20Venice.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Gondola%20Venice.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">貢多拉（可共船）</div>
+            <div class="city">威尼斯 · 30 分 · share 約 $250–400</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Florence+Cathedral+Duomo+Brunelleschi+dome">
+          <span class="badge-row"><span class="tag must">必須</span></span>
+          <img class="pic" loading="lazy" alt="花之聖母大教堂"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Florence%20Duomo%20from%20Michelangelo%20hill.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Florence%20Cathedral.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">花之聖母大教堂</div>
+            <div class="city">佛羅倫斯 · 2–3h · 組合票約 $250–350</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Piazzale+Michelangelo+Florence+sunset">
+          <span class="badge-row"><span class="tag must">必須</span></span>
+          <img class="pic" loading="lazy" alt="米開朗基羅廣場"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Piazzale%20Michelangelo%20Florence.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Piazzale%20Michelangelo.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">米開朗基羅廣場</div>
+            <div class="city">佛羅倫斯 · 1h · 免費 · 夕陽</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Colosseum+Rome">
+          <span class="badge-row"><span class="tag must">必須</span></span>
+          <img class="pic" loading="lazy" alt="羅馬競技場"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Colosseum%20in%20Rome,%20Italy%20-%20April%202007.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Colosseum.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">羅馬競技場 Colosseo</div>
+            <div class="city">羅馬 · 2h · 約 $150–200（要預約）</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Pantheon+Rome+interior+oculus">
+          <span class="badge-row"><span class="tag must">必須</span></span>
+          <img class="pic" loading="lazy" alt="萬神殿"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Pantheon%20Rome%2001.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Pantheon%20Rome.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">萬神殿 Pantheon</div>
+            <div class="city">羅馬 · 45 分 · 約 $40–50</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Trevi+Fountain+Rome">
+          <span class="badge-row"><span class="tag must">必須</span></span>
+          <img class="pic" loading="lazy" alt="特萊維噴泉"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Trevi%20Fountain,%20Rome,%20Italy%202%20-%20May%202007.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Fontana%20di%20Trevi%20Rome.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">特萊維噴泉</div>
+            <div class="city">羅馬 · 免費</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Spanish+Steps+Rome">
+          <span class="badge-row"><span class="tag must">必須</span></span>
+          <img class="pic" loading="lazy" alt="西班牙階梯"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Spanish%20Steps%20in%20Rome.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Spanish%20Steps.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">西班牙階梯</div>
+            <div class="city">羅馬 · 與特萊維同一散步線</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=St+Peter%27s+Basilica+Vatican">
+          <span class="badge-row"><span class="tag alt">次選</span></span>
+          <img class="pic" loading="lazy" alt="聖彼得大教堂"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/St.%20Peter%27s%20Basilica%20facade,%20Rome,%20Italy.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/St%20Peter%27s%20Basilica.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">梵蒂岡／聖彼得大教堂</div>
+            <div class="city">梵蒂岡 · 半日–全日 · 次選</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+        <a class="photo-card" target="_blank" rel="noopener"
+           href="https://www.google.com/search?tbm=isch&amp;q=Leaning+Tower+of+Pisa+summer">
+          <span class="badge-row"><span class="tag must">必須 · D7</span></span>
+          <img class="pic" loading="lazy" alt="比薩斜塔"
+               src="https://commons.wikimedia.org/wiki/Special:FilePath/Leaning%20Tower%20of%20Pisa.jpg?width=640"
+               onerror="this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Pisa%20tower.jpg?width=640'" />
+          <div class="meta">
+            <div class="name">比薩斜塔</div>
+            <div class="city">比薩 · 半日 · 翡冷翠→羅馬過路</div>
+            <div class="hint">開 Google 圖片</div>
+          </div>
+        </a>
+      </div>
+
+      <h3>實用速查表（價錢／停留）</h3>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>景點</th>
+              <th>城市</th>
+              <th>停留</th>
+              <th>門票約 HKD</th>
+              <th>優先</th>
+              <th>睇相</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>卡佩爾橋</td><td>琉森</td><td>45–60 分</td><td>免費</td>
+              <td><span class="tag must">必須</span></td>
+              <td><a class="sight" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&amp;q=Chapel+Bridge+Lucerne">📷 相</a></td>
+            </tr>
+            <tr>
+              <td>皮拉圖斯／瑞吉</td><td>琉森</td><td>4–6h</td><td>450–700</td>
+              <td><span class="tag must">必須</span></td>
+              <td><a class="sight" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&amp;q=Mount+Pilatus">📷 相</a></td>
+            </tr>
+            <tr>
+              <td>少女峰</td><td>因特拉肯</td><td>全日</td><td>1,000–1,500</td>
+              <td><span class="tag must">必須</span></td>
+              <td><a class="sight" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&amp;q=Jungfraujoch">📷 相</a></td>
+            </tr>
+            <tr>
+              <td>米蘭大教堂</td><td>米蘭</td><td>2–3h</td><td>屋頂 130–200</td>
+              <td><span class="tag must">必須</span></td>
+              <td><a class="sight" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&amp;q=Duomo+Milan">📷 相</a></td>
+            </tr>
+            <tr>
+              <td>聖馬可廣場</td><td>威尼斯</td><td>2–3h</td><td>廣場免費</td>
+              <td><span class="tag must">必須</span></td>
+              <td><a class="sight" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&amp;q=Piazza+San+Marco">📷 相</a></td>
+            </tr>
+            <tr>
+              <td>花之聖母大教堂</td><td>佛羅倫斯</td><td>2–3h</td><td>250–350</td>
+              <td><span class="tag must">必須</span></td>
+              <td><a class="sight" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&amp;q=Florence+Duomo">📷 相</a></td>
+            </tr>
+            <tr>
+              <td>比薩斜塔</td><td>比薩</td><td>半日</td><td>廣場免費；登塔約 180</td>
+              <td><span class="tag must">必須</span></td>
+              <td><a class="sight" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&amp;q=Leaning+Tower+of+Pisa">📷 相</a></td>
+            </tr>
+            <tr>
+              <td>競技場</td><td>羅馬</td><td>2h</td><td>150–200</td>
+              <td><span class="tag must">必須</span></td>
+              <td><a class="sight" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&amp;q=Colosseum+Rome">📷 相</a></td>
+            </tr>
+            <tr>
+              <td>萬神殿／特萊維</td><td>羅馬</td><td>2h</td><td>噴泉免費</td>
+              <td><span class="tag must">必須</span></td>
+              <td><a class="sight" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&amp;q=Trevi+Fountain">📷 相</a></td>
+            </tr>
+            <tr>
+              <td>Landwasser 高架橋</td><td>格勞賓登</td><td>半日+</td><td>火車另計</td>
+              <td><span class="tag warn">未包含</span></td>
+              <td><a class="sight" target="_blank" rel="noopener" href="https://www.google.com/search?tbm=isch&amp;q=Landwasser+Viaduct">📷 相</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box gold">
+        <strong class="label">取捨說明</strong>
+        本版：瑞士 <strong>琉森 + Landwasser</strong>；意大利米蘭／威尼斯／翡冷翠／<strong>比薩</strong>／羅馬。<strong>仍刪</strong>少女峰、因特拉肯。若超支：先砍貢多拉、Pilatus、登塔；<strong>Landwasser、卡佩爾橋、斜塔外觀、競技場優先</strong>。
+      </div>
+    </section>
+
+    <!-- 3. ITINERARY -->
+    <section id="itinerary">
+      <h2><span class="num">3</span> 逐日行程（可執行版）</h2>
+      <p class="small muted">價格為 2025–26 旺季參考，匯率約 CHF 1 ≈ HKD 9.0、EUR 1 ≈ HKD 8.5（會浮動）。住宿名為「類型＋區域」建議，實際房況請 Booking／Hostelworld 再核。</p>
+      <div class="box blue" id="nightlife" style="margin-bottom:16px">
+        <strong class="label">🌙 夜貓子設定（已按你習慣補上）</strong>
+        你<strong>唔早瞓、最早約 12 點先返房</strong>——每日時間表已加 <strong>20:00–24:00 夜晚段</strong>。<br />
+        意大利夜晚最強（Navigli／Trastevere／Campo）；瑞士山區夜場較靜，改以<strong>夜景散步 + bar 一兩杯 + hostel bar</strong>為主，唔好期望 club 成行成市。<br />
+        詳細一夜一城總表見下面「夜晚總表」；獨行夜歸：行大路、貴重品前袋、醉酒少。
+      </div>
+
+      <!-- DAY 0 -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 0｜08-21（五）香港</h3>
+          <div class="day-theme">主題：出發日 · 夜機飛蘇黎世</div>
+        </div>
+        <div class="grid-2">
+          <div class="box"><strong class="label">住宿</strong>機上</div>
+          <div class="box"><strong class="label">花費小計</strong>機場交通 + 晚餐約 $150–300</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">日內</span><span>最後檢查護照（有效期 &gt; 回程後 3 個月）、ETIAS（若已實施）、旅遊保險、eSIM</span></li>
+          <li><span class="t">傍晚</span><span>機場快綫／巴士去 HKG；預留 2.5–3 小時辦登机</span></li>
+          <li><span class="t">起飛</span><span>國泰直航 HKG→ZRH（時間以機票為準）</span></li>
+        </ul>
+        <p><strong>注意：</strong>托運行李額、插座轉換頭（瑞士 Type J、意國 Type C/F/L）放隨身。</p>
+      </article>
+
+      <!-- DAY 1 -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 1｜08-22（六）蘇黎世 → 琉森</h3>
+          <div class="day-theme">主題：抵達 · 瑞士湖城暖身（+2 晚瑞士第 1 晚）</div>
+        </div>
+        <div class="grid-2">
+          <div class="box">
+            <strong class="label">住宿</strong>
+            琉森湖邊／車站 10 分 Hostel · <strong>$280–450／晚</strong>（住 2 晚）
+          </div>
+          <div class="box"><strong class="label">必去</strong>卡佩爾橋、老城、湖邊</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">上午</span><span>抵 ZRH → SBB：Zürich Flughafen → Luzern（~1h15，約 $200–280）</span></li>
+          <li><span class="t">中午</span><span>入住、沖涼恢復時差</span></li>
+          <li><span class="t">15:00</span><span>卡佩爾橋、水塔、老城</span></li>
+          <li><span class="t">17:30</span><span>湖邊夕陽</span></li>
+          <li><span class="t">19:30</span><span>晚餐「好少少」老城</span></li>
+          <li><span class="t">21:00–24:00</span><span><strong>🌙</strong> 橋夜景 + 河邊 bar 坐到 ~12 點</span></li>
+        </ul>
+        <p><strong>花費小計：</strong>約 <strong>$1,000–1,100</strong></p>
+      </article>
+
+      <!-- DAY 2 -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 2｜08-23（日）琉森全日</h3>
+          <div class="day-theme">主題：湖山一日（皮拉圖斯 or 瑞吉 or 純湖邊慢）</div>
+        </div>
+        <div class="grid-2">
+          <div class="box"><strong class="label">住宿</strong>續住琉森 · $280–450</div>
+          <div class="box"><strong class="label">必去</strong>皮拉圖斯／瑞吉二選一；8 月多數綠山、遠眺雪山</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">08:30</span><span>Pilatus 金三角（船+齒軌+纜車）或瑞吉山全日</span></li>
+          <li><span class="t">16:30</span><span>回市區；可逛 Lion Monument</span></li>
+          <li><span class="t">19:00</span><span>平價晚餐</span></li>
+          <li><span class="t">21:00–24:00</span><span><strong>🌙</strong> 老城 bar 1–2 間到 12 點</span></li>
+        </ul>
+        <p><strong>門票：</strong>Pilatus 約 $630–900。懶上山可改遊船 + 老城慢活。</p>
+        <p><strong>花費小計：</strong>約 <strong>$1,300–1,500</strong></p>
+      </article>
+
+      <!-- DAY 3 -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 3｜08-24（一）琉森 → 庫爾</h3>
+          <div class="day-theme">主題：轉往東部 · RhB 門戶</div>
+        </div>
+        <div class="grid-2">
+          <div class="box"><strong class="label">住宿</strong>庫爾車站附近 · $220–380</div>
+          <div class="box"><strong class="label">交通</strong>Luzern → Chur（SBB，約 2–2.5h，常 1 轉，約 $220–320）</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">10:00</span><span>退房出發去庫爾（唔使太早）</span></li>
+          <li><span class="t">13:00</span><span>到庫爾、入住</span></li>
+          <li><span class="t">15:00</span><span>老城散步、超市補給；確認聽日 RhB 班次</span></li>
+          <li><span class="t">19:00</span><span>晚餐</span></li>
+          <li><span class="t">21:00–24:00</span><span><strong>🌙</strong> 細城 bar／hostel；留力聽日過橋</span></li>
+        </ul>
+        <p><strong>花費小計：</strong>約 <strong>$850–1,000</strong></p>
+      </article>
+
+      <!-- DAY 4 LANDWASSER -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 4｜08-25（二）庫爾 → Landwasser → 聖莫里茨</h3>
+          <div class="day-theme">主題：⭐ 核心日 · 火車過 Landwasser 高架橋</div>
+        </div>
+        <div class="grid-2">
+          <div class="box red">
+            <strong class="label">今日重點</strong>
+            RhB：Chur → St. Moritz ~2h · <strong>往聖莫里茨坐右邊</strong><br />
+            普通 IR 就過橋，唔使 Glacier Express
+          </div>
+          <div class="box">
+            <strong class="label">住宿</strong>
+            Samedan／Pontresina／Celerina · $280–500<br />（慳過聖莫中心）
+          </div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">08:30</span><span>庫爾上車 RhB 紅火車</span></li>
+          <li><span class="t">~10:00</span><span>⭐ 過 Landwasser Viaduct（高潮幾分鐘）</span></li>
+          <li><span class="t">11:00</span><span>抵聖莫里茨／Engadin 入住</span></li>
+          <li><span class="t">14:00</span><span>可選：Filisur 回頭睇橋外觀；或湖邊放鬆</span></li>
+          <li><span class="t">19:30</span><span>晚餐（衛星鎮平啲）</span></li>
+          <li><span class="t">21:00–24:00</span><span><strong>🌙</strong> 山區夜場淡；湖邊黃昏 + bar</span></li>
+        </ul>
+        <div class="box gold">
+          <strong class="label">Landwasser</strong>
+          SBB App：Chur → St. Moritz · 約 $360–500 · Swiss Travel Pass 多數包普通 RhB
+        </div>
+        <p><strong>花費小計：</strong>約 <strong>$1,100–1,300</strong></p>
+      </article>
+
+      <!-- DAY 5 BERNINA -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 5｜08-26（三）聖莫里茨 → Tirano → 米蘭</h3>
+          <div class="day-theme">主題：Bernina 入意大利 · Navigli 夜貓開齋</div>
+        </div>
+        <div class="grid-2">
+          <div class="box"><strong class="label">住宿</strong>米蘭 Centrale 附近 · $180–320</div>
+          <div class="box"><strong class="label">火車</strong>Bernina ~2–2.5h（全景要訂位）+ Tirano→米蘭 ~2.5–3.5h</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">08:00</span><span>St. Moritz → Tirano（Bernina Express 或普通 RhB）</span></li>
+          <li><span class="t">12:00</span><span>Tirano → Milano</span></li>
+          <li><span class="t">16:00</span><span>入住；Duomo 外觀若有力</span></li>
+          <li><span class="t">19:30–24:00</span><span><strong>🌙 Navigli</strong> Aperitivo + bar hop 到 12 點+</span></li>
+        </ul>
+        <p><strong>花費小計：</strong>約 <strong>$1,100–1,250</strong></p>
+      </article>
+
+      <!-- DAY 6 -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 6｜08-27（四）米蘭 → 威尼斯</h3>
+          <div class="day-theme">主題：米蘭上午 · 下午水城 · 夜景</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">08:30</span><span>Duomo 屋頂／廣場</span></li>
+          <li><span class="t">12:30</span><span>高鐵 Milano → Venezia S.L. ~2h20</span></li>
+          <li><span class="t">16:00</span><span>入住；黃昏聖馬可／里阿爾托</span></li>
+          <li><span class="t">20:00–24:00</span><span><strong>🌙</strong> 聖馬可夜景 + bacaro 到 12 點</span></li>
+        </ul>
+        <p><strong>住宿：</strong>威尼斯主島 · $220–400 · <strong>花費小計：</strong>約 <strong>$1,000–1,150</strong></p>
+      </article>
+
+      <!-- DAY 7 -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 7｜08-28（五）威尼斯全日</h3>
+          <div class="day-theme">主題：水城深度 + Campo 夜</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">日</span><span>聖馬可、Vaporetto 大運河、迷路、可選貢多拉</span></li>
+          <li><span class="t">20:00–24:00</span><span><strong>🌙 Campo S. Margherita</strong> bar hop</span></li>
+        </ul>
+        <p><strong>花費小計：</strong>約 <strong>$1,000–1,300</strong></p>
+      </article>
+
+      <!-- DAY 8 -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 8｜08-29（六）威尼斯 → 佛羅倫斯</h3>
+          <div class="day-theme">主題：翡冷翠精華 + Oltrarno 夜（聽日要比薩）</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">09:30</span><span>Venezia → Firenze SMN ~2h</span></li>
+          <li><span class="t">14:00</span><span>大教堂、舊橋</span></li>
+          <li><span class="t">17:30</span><span>米開朗基羅廣場夕陽</span></li>
+          <li><span class="t">20:00–24:00</span><span><strong>🌙 Santo Spirito</strong> 到 12 點</span></li>
+        </ul>
+        <p><strong>住宿：</strong>SMN 附近 · $200–350 · <strong>花費小計：</strong>約 <strong>$900–1,150</strong></p>
+      </article>
+
+      <!-- DAY 9 PISA -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 9｜08-30（日）佛羅倫斯 → 比薩 → 羅馬</h3>
+          <div class="day-theme">主題：⭐ 比薩斜塔半日 · 抵羅馬夜</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">08:00</span><span>Firenze → Pisa C.le ~1h · 奇蹟廣場 09:45–12:30</span></li>
+          <li><span class="t">13:30</span><span>Pisa → Roma Termini ~2.5–3.5h</span></li>
+          <li><span class="t">17:30</span><span>入住 Termini／Monti</span></li>
+          <li><span class="t">19:30–24:00+</span><span><strong>🌙 Trastevere</strong> + 特萊維夜景</span></li>
+        </ul>
+        <p><strong>花費小計：</strong>約 <strong>$990–1,200</strong></p>
+      </article>
+
+      <!-- DAY 10 -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 10｜08-31（一）羅馬全日</h3>
+          <div class="day-theme">主題：古羅馬核心 + 最後一夜（羅馬只 2 晚要睇重點）</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">08:30</span><span>競技場（預約）+ 廣場外圍</span></li>
+          <li><span class="t">13:00</span><span>萬神殿；下晝可選梵蒂岡廣場外觀</span></li>
+          <li><span class="t">19:30</span><span>Carbonara「好少少」</span></li>
+          <li><span class="t">21:00–24:00</span><span><strong>🌙</strong> 競技場夜景 + Trastevere／Monti（睇航班唔好玩通頂）</span></li>
+        </ul>
+        <p><strong>花費小計：</strong>約 <strong>$900–1,100</strong></p>
+        <p class="small"><strong>注意：</strong>羅馬只有今晚 + 聽早——重點放競技場／特萊維／萬神殿；梵蒂岡博物館未必夠時間。</p>
+      </article>
+
+      <!-- DAY 11 -->
+      <article class="day">
+        <div class="day-head">
+          <h3>Day 11｜09-01（二）羅馬 → 香港</h3>
+          <div class="day-theme">主題：FCO 直航 · 09-02 開工（建議午／午後機）</div>
+        </div>
+        <ul class="timeline">
+          <li><span class="t">視航班</span><span>Leonardo Express → FCO；起飛前 3h 到場</span></li>
+          <li><span class="t">若早機</span><span>D10 夜早啲瞓；唔好太夜</span></li>
+        </ul>
+        <p><strong>花費小計：</strong>約 <strong>$220</strong></p>
+      </article>
+
+      <h3>🌙 夜晚總表（20:00–24:00）— 夜貓子速查</h3>
+      <p class="small muted">你最早約 12 點瞓：意大利幾晚最有得玩；瑞士偏「夜景 + bar 坐住飲」。</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>日</th>
+              <th>城市</th>
+              <th>夜晚主打</th>
+              <th>去邊度</th>
+              <th>玩到幾點</th>
+              <th>夜段預算約</th>
+              <th>獨行安全</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>D1–2</td>
+              <td>琉森</td>
+              <td>卡佩爾橋夜景 + 河邊 bar</td>
+              <td>老城</td>
+              <td>~24:00</td>
+              <td>$80–150／晚</td>
+              <td>高</td>
+            </tr>
+            <tr>
+              <td>D3</td>
+              <td>庫爾</td>
+              <td>細城 bar（留力過橋）</td>
+              <td>老城</td>
+              <td>~24:00</td>
+              <td>$60–120</td>
+              <td>高</td>
+            </tr>
+            <tr>
+              <td>D4</td>
+              <td>Engadin</td>
+              <td>湖邊黃昏 + 酒店 bar</td>
+              <td>Pontresina 等</td>
+              <td>~23–24:00</td>
+              <td>$80–150</td>
+              <td>高</td>
+            </tr>
+            <tr>
+              <td>D5</td>
+              <td>米蘭</td>
+              <td>⭐ Navigli Aperitivo</td>
+              <td>Navigli</td>
+              <td>24:00+</td>
+              <td>$150–250</td>
+              <td>中</td>
+            </tr>
+            <tr>
+              <td>D6–7</td>
+              <td>威尼斯</td>
+              <td>聖馬可夜 + Campo</td>
+              <td>主島</td>
+              <td>24:00+</td>
+              <td>$100–200</td>
+              <td>中</td>
+            </tr>
+            <tr>
+              <td>D8</td>
+              <td>翡冷翠</td>
+              <td>Santo Spirito</td>
+              <td>Oltrarno</td>
+              <td>24:00+</td>
+              <td>$100–180</td>
+              <td>中高</td>
+            </tr>
+            <tr>
+              <td>D9–10</td>
+              <td>羅馬</td>
+              <td>⭐ Trastevere + 夜景</td>
+              <td>Trastevere</td>
+              <td>24:00（D10 睇機）</td>
+              <td>$150–250</td>
+              <td>中</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-2">
+        <div class="box green">
+          <strong class="label">夜晚「最強」三晚（優先唔好浪費）</strong>
+          <ol>
+            <li><strong>米蘭 Navigli</strong>（D5）— Aperitivo</li>
+            <li><strong>羅馬 Trastevere</strong>（D9–10）— 最啱夜貓</li>
+            <li><strong>翡冷翠 Oltrarno</strong>（D8）— wine bar</li>
+          </ol>
+        </div>
+        <div class="box gold">
+          <strong class="label">夜晚預算（全行程加飲）</strong>
+          <ul>
+            <li>節儉：約 <strong>$800–1,200</strong>（多數 1–2 杯／晚）</li>
+            <li>正常夜貓：約 <strong>$1,500–2,200</strong></li>
+            <li>瑞士一杯酒好貴；意大利／Aperitivo 較抵</li>
+            <li>已計入各日「花費小計」嘅夜飲項，總預算或要由 33k 上望 <strong>~35–37k</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="box red">
+        <strong class="label">獨行夜遊守則</strong>
+        <ul>
+          <li>醉酒上限：保持識搭車返宿；重要證件唔隨身全帶</li>
+          <li>羅馬 Termini、米蘭 Centrale <strong>深夜</strong>改用 Uber／的士</li>
+          <li>威尼斯夜班船疏——預早睇末班 or 行路路線</li>
+          <li>女仕視角：Trastevere／Navigli 人多相對好；偏靜工業區夜場先查清楚</li>
+          <li>「好少少」晚餐 + 夜飲可以合併：Aperitivo 一 round 已頂半餐</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. TRANSPORT -->
+    <section id="transport">
+      <h2><span class="num">4</span> 交通訂票指南（手把手）</h2>
+
+      <h3>出發前要網上先買</h3>
+      <ul>
+        <li>✅ 來回<strong>直航機票</strong>（Open-jaw：ZRH 進、FCO 出）</li>
+        <li>✅ 跨國：Interlaken → Milano（建議 T-21～T-14）</li>
+        <li>✅ 意大利高鐵：Milano→Venezia、Venezia→Firenze、Firenze→Roma（越早越平）</li>
+        <li>✅ 少女峰票（可看天氣前幾天買；旺季建議先鎖）</li>
+        <li>✅ 競技場、Duomo 屋頂等<strong>時段票</strong></li>
+        <li>✅ 旅遊保險、eSIM</li>
+      </ul>
+
+      <h3>去到先買就可以</h3>
+      <ul>
+        <li>瑞士短途：機場→琉森、琉森→因特拉肯（SBB 即買即走，班次密）</li>
+        <li>城市地鐵／巴士日票</li>
+        <li>威尼斯 Vaporetto（碼頭／App／Tabacchi）</li>
+      </ul>
+
+      <h3>推薦 App 清單</h3>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>App／網站</th><th>用途</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>SBB Mobile</strong></td><td>瑞士全境火車／巴士查票買票（必裝）</td></tr>
+            <tr><td><strong>Trenitalia</strong></td><td>意大利國鐵 Frecciarossa 等</td></tr>
+            <tr><td><strong>Italo</strong></td><td>另一家高鐵，常有平價</td></tr>
+            <tr><td><strong>Trainline / Omio</strong></td><td>跨國搜尋比價（可能收服務費）</td></tr>
+            <tr><td><strong>Google Maps / Citymapper</strong></td><td>步行＋公交</td></tr>
+            <tr><td><strong>TheFork / Google</strong></td><td>訂餐廳</td></tr>
+            <tr><td><strong>Cathay Pacific</strong></td><td>值機、航班動態</td></tr>
+            <tr><td><strong>AVM Venezia</strong></td><td>威尼斯船</td></tr>
+            <tr><td><strong>Wise / 銀行 App</strong></td><td>匯率、鎖卡</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>瑞士火車：點樣買最抵</h3>
+      <ol class="steps">
+        <li>下載 <strong>SBB Mobile</strong> → 用電郵註冊</li>
+        <li>輸入 From / To / 日期時間 → 選班次</li>
+        <li>票種：通常選 <strong>1/2 等（獨行 2 等夠）</strong>；Saver fare 若有就揀</li>
+        <li>付款：Visa／Mastercard；票存 App QR，查票出示</li>
+        <li>改簽：視票種；全價票較靈活，特價可能不可退</li>
+      </ol>
+      <div class="box blue">
+        <strong class="label">Swiss Travel Pass vs 點票（以本行程計）</strong>
+        <p>你喺瑞士約 <strong>4 日移動</strong>：ZRH→琉森、琉森山、琉森→庫爾、Landwasser、Bernina。</p>
+        <ul>
+          <li><strong>點票粗估：</strong>ZRH→琉森 $250 + 皮拉圖斯 $700 + 琉森→庫爾 $270 + Landwasser $400 + Bernina $400 ≈ <strong>$1,800–2,200</strong>（含山）</li>
+          <li><strong>Swiss Travel Pass 4 日連續：</strong>可能接近打和——出發前用你實際班次算一次</li>
+          <li><strong>Bernina 全景：</strong>另付座位預約</li>
+        </ul>
+      </div>
+
+      <h3>意大利火車：Trenitalia / Italo</h3>
+      <ol class="steps">
+        <li>開 <a href="https://www.trenitalia.com" target="_blank" rel="noopener">trenitalia.com</a> 或 App；或 italotreno.it</li>
+        <li>填車站英文／意大利名（如 <em>Milano Centrale</em>、<em>Venezia Santa Lucia</em>、<em>Firenze S.M. Novella</em>、<em>Roma Termini</em>）</li>
+        <li>選 <strong>Super Economy / Economy</strong>（最平，改簽限制多）或 Base（靈活）</li>
+        <li>座位：2 等標準位夠；獨行唔使 Business</li>
+        <li>出票：PDF / App QR；高鐵<strong>通常對號入座</strong></li>
+        <li>⚠️ 旺季同週五下午貴；<strong>盡量 T-14 前買</strong></li>
+      </ol>
+
+      <h3>每個移動日速查</h3>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>日</th>
+              <th>路線</th>
+              <th>車程</th>
+              <th>頻率</th>
+              <th>參考價 HKD</th>
+              <th>App</th>
+              <th>注意</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>D1</td>
+              <td>ZRH Airport → Luzern</td>
+              <td>~1h15</td>
+              <td>高頻</td>
+              <td>200–280</td>
+              <td>SBB</td>
+              <td>瑞士加厚起點</td>
+            </tr>
+            <tr>
+              <td>D3</td>
+              <td>Luzern → Chur</td>
+              <td>~2–2.5h</td>
+              <td>多班</td>
+              <td>220–320</td>
+              <td>SBB</td>
+              <td>轉東部</td>
+            </tr>
+            <tr>
+              <td>D4</td>
+              <td>Chur → St. Moritz（Landwasser）</td>
+              <td>~2h</td>
+              <td>~每小時</td>
+              <td>360–500</td>
+              <td>SBB / RhB</td>
+              <td>⭐ 坐右邊</td>
+            </tr>
+            <tr>
+              <td>D5</td>
+              <td>St. Moritz → Tirano（Bernina）</td>
+              <td>~2–2.5h</td>
+              <td>數班</td>
+              <td>300–500+訂位</td>
+              <td>RhB</td>
+              <td>全景要訂位</td>
+            </tr>
+            <tr>
+              <td>D5</td>
+              <td>Tirano → Milano</td>
+              <td>~2.5–3.5h</td>
+              <td>多班</td>
+              <td>80–180</td>
+              <td>Trenitalia</td>
+              <td>入意大利</td>
+            </tr>
+            <tr>
+              <td>D6</td>
+              <td>Milano C.le → Venezia S.L.</td>
+              <td>2h15–2h40</td>
+              <td>高頻</td>
+              <td>170–380</td>
+              <td>Trenitalia / Italo</td>
+              <td>對號入座</td>
+            </tr>
+            <tr>
+              <td>D8</td>
+              <td>Venezia S.L. → Firenze SMN</td>
+              <td>~2h–2h15</td>
+              <td>高頻</td>
+              <td>170–350</td>
+              <td>Trenitalia / Italo</td>
+              <td>早買 Super Economy</td>
+            </tr>
+            <tr>
+              <td>D9</td>
+              <td>Firenze SMN → Pisa C.le</td>
+              <td>~50分–1h10</td>
+              <td>高頻</td>
+              <td>80–120</td>
+              <td>Trenitalia</td>
+              <td>區域車；去奇蹟廣場</td>
+            </tr>
+            <tr>
+              <td>D9</td>
+              <td>Pisa C.le → Roma Termini</td>
+              <td>~2.5–3.5h</td>
+              <td>多班</td>
+              <td>180–350</td>
+              <td>Trenitalia</td>
+              <td>建議早買；拖喼過比薩</td>
+            </tr>
+            <tr>
+              <td>D11</td>
+              <td>Roma Termini → FCO</td>
+              <td>32 分（Express）</td>
+              <td>每 15–30 分</td>
+              <td>~120</td>
+              <td>Trenitalia / 現場</td>
+              <td>預留塞車；巴士更平</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box red">
+        <strong class="label">罷工風險（意大利）</strong>
+        意國偶有交通罷工，出發前 1–2 日查 <em>sciopero treni</em> 新聞；有罷工就改早一班／巴士（FlixBus）／改行程順序。瑞士極少罷工。
+      </div>
+    </section>
+
+    <!-- 5. STAY -->
+    <section id="stay">
+      <h2><span class="num">5</span> 住宿總表</h2>
+      <p class="small muted">平台建議：Booking.com（免費取消房優先）、Hostelworld（床位）、Agoda。8 月旺季請 <strong>T-60～T-30 先訂</strong>。</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>城市</th>
+              <th>晚數</th>
+              <th>主選（類型／區域）</th>
+              <th>備選</th>
+              <th>一晚參考</th>
+              <th>小計</th>
+              <th>點解方便</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>琉森</td>
+              <td>2</td>
+              <td>湖邊／車站 10 分 Hostel</td>
+              <td>Jugendherberge</td>
+              <td>$280–450</td>
+              <td>$560–900</td>
+              <td>瑞士加厚 · 卡佩爾橋</td>
+            </tr>
+            <tr>
+              <td>庫爾 Chur</td>
+              <td>1</td>
+              <td>車站附近 Hostel</td>
+              <td>老城</td>
+              <td>$220–380</td>
+              <td>$220–380</td>
+              <td>聽日 Landwasser</td>
+            </tr>
+            <tr>
+              <td>Engadin</td>
+              <td>1</td>
+              <td>Samedan／Pontresina</td>
+              <td>聖莫中心（貴）</td>
+              <td>$280–500</td>
+              <td>$280–500</td>
+              <td>聽日 Bernina</td>
+            </tr>
+            <tr>
+              <td>米蘭</td>
+              <td>1</td>
+              <td>Centrale Hostel</td>
+              <td>Duomo 沿線</td>
+              <td>$180–320</td>
+              <td>$180–320</td>
+              <td>Navigli</td>
+            </tr>
+            <tr>
+              <td>威尼斯</td>
+              <td>2</td>
+              <td>主島 Hostel</td>
+              <td>Mestre</td>
+              <td>$220–400</td>
+              <td>$440–800</td>
+              <td>水城</td>
+            </tr>
+            <tr>
+              <td>佛羅倫斯</td>
+              <td>1</td>
+              <td>SMN 10 分</td>
+              <td>Oltrarno</td>
+              <td>$200–350</td>
+              <td>$200–350</td>
+              <td>聽日比薩</td>
+            </tr>
+            <tr>
+              <td>羅馬</td>
+              <td>2</td>
+              <td>Termini／Monti</td>
+              <td>Trastevere</td>
+              <td>$180–320</td>
+              <td>$360–640</td>
+              <td>壓縮後 2 晚 · 選穩陣回程機</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>住宿合計粗估：</strong>約 <strong>$2,200–3,900</strong>（琉森 2 晚 + Engadin）。羅馬只 2 晚。聖莫<strong>住衛星鎮</strong>慳錢。</p>
+
+      <div class="box red">
+        <strong class="label">獨行安全（含女生視角）</strong>
+        <ul>
+          <li>訂<strong>女性專用宿舍</strong>或有鎖私人房；讀近半年評價提「安全／夜間」</li>
+          <li>車站周邊（尤其 Milano Centrale、Roma Termini）白天OK，深夜少逛、背包前背</li>
+          <li>威尼斯橋多、路燈不均，夜歸行大路；酒類適量</li>
+          <li>貴重品放宿內儲物櫃；护照影印＋手機相</li>
+          <li>分享即時位置俾朋友；住宿地址寫紙仔放銀包</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. BUDGET -->
+    <section id="budget">
+      <h2><span class="num">6</span> 總預算表（HKD）</h2>
+
+      <div class="budget-compare">
+        <div class="budget-card low">
+          <h3>節儉版</h3>
+          <div class="budget-total">≈ $32,000</div>
+          <p class="small">青旅床位 · 一日一餐好少少 · 點票 · 少女峰早鳥</p>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>項目</th><th>金額</th><th>性質</th></tr></thead>
+              <tbody>
+                <tr><td>來回直航</td><td>9,500</td><td>固定（可砍幅度小）</td></tr>
+                <tr><td>住宿 10 晚</td><td>2,500</td><td>可砍</td></tr>
+                <tr><td>城際火車</td><td>1,800</td><td>半固定</td></tr>
+                <tr><td>山岳＋景點門票</td><td>2,800</td><td>可砍（勿砍少女峰優先）</td></tr>
+                <tr><td>餐飲</td><td>3,500</td><td>可砍</td></tr>
+                <tr><td>本地交通</td><td>600</td><td>半固定</td></tr>
+                <tr><td>保險</td><td>350</td><td>固定建議</td></tr>
+                <tr><td>eSIM／雜項</td><td>400</td><td>可砍</td></tr>
+                <tr><td>緩衝</td><td>1,550</td><td>應留</td></tr>
+                <tr><td><strong>合計</strong></td><td><strong>≈ 33,000</strong></td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="budget-card high">
+          <h3>舒適一點</h3>
+          <div class="budget-total">≈ $39,500</div>
+          <p class="small">Hostel 私人房 · 多兩餐好 · 貢多拉 · 少趕</p>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>項目</th><th>金額</th><th>性質</th></tr></thead>
+              <tbody>
+                <tr><td>來回直航</td><td>11,500</td><td>固定</td></tr>
+                <tr><td>住宿 10 晚私人房</td><td>3,800</td><td>可砍</td></tr>
+                <tr><td>城際火車</td><td>2,200</td><td>半固定</td></tr>
+                <tr><td>山岳＋景點門票</td><td>3,500</td><td>可砍</td></tr>
+                <tr><td>餐飲</td><td>5,000</td><td>可砍</td></tr>
+                <tr><td>本地交通</td><td>800</td><td>半固定</td></tr>
+                <tr><td>保險</td><td>450</td><td>固定建議</td></tr>
+                <tr><td>eSIM／雜項／伴手禮</td><td>800</td><td>可砍</td></tr>
+                <tr><td>緩衝</td><td>1,450</td><td>應留</td></tr>
+                <tr><td><strong>合計</strong></td><td><strong>≈ 39,500</strong></td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="box gold" style="margin-top:14px">
+        <strong class="label">若只可以超支一個項目，優先保留：</strong>
+        <strong>少女峰門票 ＋ 直航合理時段</strong>。寧願住宿舍床位、少食大餐、砍貢多拉／Harder Kulm／大教堂屋頂，都唔好改成轉機紅眼機或者刪瑞士山區。
+      </div>
+    </section>
+
+    <!-- 7. CHECKLIST -->
+    <section id="checklist">
+      <h2><span class="num">7</span> 出發前 Checklist</h2>
+
+      <div class="checklist">
+        <div class="check-item">
+          <h4>T-30（一個月前）</h4>
+          <label><input type="checkbox" /> 鎖直航 open-jaw 機票</label>
+          <label><input type="checkbox" /> 訂全部住宿（可免費取消優先）</label>
+          <label><input type="checkbox" /> 買旅遊保險（醫療+行李）</label>
+          <label><input type="checkbox" /> 查護照有效期</label>
+          <label><input type="checkbox" /> 意大利高鐵三段早鳥</label>
+        </div>
+        <div class="check-item">
+          <h4>T-14</h4>
+          <label><input type="checkbox" /> Interlaken→米蘭票</label>
+          <label><input type="checkbox" /> 少女峰／Pilatus 套票比價</label>
+          <label><input type="checkbox" /> 競技場＋Duomo 屋頂預約</label>
+          <label><input type="checkbox" /> eSIM 下單（Airalo 等）</label>
+          <label><input type="checkbox" /> 查 ETIAS 是否已實施</label>
+        </div>
+        <div class="check-item">
+          <h4>T-7</h4>
+          <label><input type="checkbox" /> 網上 check-in 提醒設好</label>
+          <label><input type="checkbox" /> 下載離線 Google Map</label>
+          <label><input type="checkbox" /> 通知銀行外遊用卡</label>
+          <label><input type="checkbox" /> 列印／雲端備份所有 QR</label>
+          <label><input type="checkbox" /> 天氣＋行李清單</label>
+        </div>
+        <div class="check-item">
+          <h4>T-1</h4>
+          <label><input type="checkbox" /> 充實手機電、行動電源</label>
+          <label><input type="checkbox" /> 瑞士法郎＋歐元少量現金</label>
+          <label><input type="checkbox" />  thrice 確認航班準時</label>
+          <label><input type="checkbox" /> 住宿地址寫低</label>
+          <label><input type="checkbox" /> 充電器：Type C / Type J</label>
+        </div>
+      </div>
+
+      <h3>簽證（香港特區護照）</h3>
+      <div class="box green">
+        <ul>
+          <li>瑞士、意大利均屬<strong>申根區</strong>。</li>
+          <li>香港特區護照短期旅遊（≤90 日／180 日內）一般<strong>免簽證</strong>。</li>
+          <li><strong>ETIAS</strong>：歐盟旅行前授權系統；截至資料仍以官方公佈為準——2026 出行前請上歐盟／意大利領事館專頁確認是否已強制。若已實施，出發前網上申請（費用通常約 EUR 7 級，需自行再查）。</li>
+          <li>護照建議有效期覆蓋回程後至少 3 個月；空白頁足夠。</li>
+          <li>保險：雖非硬性，強烈建議含醫療撤離；部分國家入境可能抽查證明。</li>
+        </ul>
+      </div>
+
+      <h3>實用杂项</h3>
+      <ul>
+        <li><strong>插頭：</strong>瑞士 Type J（獨特）；意大利 Type C/F/L → 帶萬用轉頭最穩</li>
+        <li><strong>支付：</strong>Visa/Mastercard 廣泛；瑞士有時愛 Twint（遊客用不了）→ 卡為主 + CHF/EUR 現金各 $500 等值應急</li>
+        <li><strong>電話：</strong>eSIM 歐洲包 10–20 日；或落地買</li>
+        <li><strong>安全：</strong>扒手熱點＝米蘭站、羅馬站、威尼斯橋頭、聖馬可；手機唔放餐廳桌邊</li>
+      </ul>
+    </section>
+
+    <!-- 8. RISK -->
+    <section id="risk">
+      <h2><span class="num">8</span> 備選與風險</h2>
+
+      <div class="grid-2">
+        <div class="box blue">
+          <strong class="label">下雨日替代</strong>
+          <ul>
+            <li>琉森：交通博物館、老城室內咖啡、獅子紀念碑快閃</li>
+            <li>因特拉肯：少女峰若大風雪 → 改 Lauterbrunnen 峽谷短行或舒緩 SPA／室內</li>
+            <li>米蘭：Leonardo 博物館（需預約）、長廊室內</li>
+            <li>威尼斯：教堂內、咖啡店看運河</li>
+            <li>翡冷翠／羅馬：烏菲茲、萬神殿、博物館日</li>
+          </ul>
+        </div>
+        <div class="box gold">
+          <strong class="label">火車誤點 Plan B</strong>
+          <ul>
+            <li>瑞士：班次密，搭下一班即可；出示延誤證明或可協助</li>
+            <li>跨國去米蘭：選較早班（上午），預留 1–2h buffer</li>
+            <li>意大利高鐵：App 睇即時；誤點嚴重改 Italo 另一班（可能要新票）</li>
+            <li>趕飛機日：Rome 前一晚必須住羅馬，勿當日由翡冷翠碰運氣</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>若機票突然貴過預算：如何砍仍保「必去」</h3>
+      <ol>
+        <li><strong>保：</strong>直航（可改日期 ±1 日）、少女峰、威尼斯、羅馬競技場</li>
+        <li><strong>砍住宿：</strong>全面改 dorm 床位，目標住 $200/晚以下</li>
+        <li><strong>砍城市：</strong>刪米蘭留宿（改因特拉肯直達威尼斯，省 1 晚）— 米蘭大教堂改站內快閃外觀</li>
+        <li><strong>砍門票：</strong>Pilatus 改平價湖遊；Duomo 只外觀；貢多拉刪；Harder 刪</li>
+        <li><strong>砍餐：</strong>超市午餐全日；只留 3 頓「好少少」</li>
+        <li><strong>最後手段：</strong>瑞士只留因特拉肯 3 晚（砍琉森），仍保少女峰 + 意國三角</li>
+      </ol>
+
+      <div class="box red">
+        <strong class="label">仍要自己再確認的事項</strong>
+        <ul>
+          <li>2026-08/09 實際國泰航班號、起飛到達時刻、open-jaw 票價</li>
+          <li>ETIAS 是否已強制、費用與申請連結</li>
+          <li>少女峰當季票價、半價卡是否划算</li>
+          <li>各 Hostel 是否仍營業、女性樓層、最新評分</li>
+          <li>意大利罷工日曆（出發前一週）</li>
+        </ul>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      本計劃書為香港獨行旅客自由行參考，非報價單、非訂位確認。<br />
+      價格與班次會變，落單前請再查官網。祝旅途順利，返到香港 09-02 開工都仲有氣！🇨🇭🇮🇹
+    </p>
+  </div>
+</body>
+</html>

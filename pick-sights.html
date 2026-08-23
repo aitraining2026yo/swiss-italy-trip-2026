@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>景點喜好挑選｜瑞士＋意大利 · 8月底–9月初</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root {
+      --bg: #f3f0ea;
+      --paper: #fffcf7;
+      --ink: #1a222c;
+      --muted: #5c6674;
+      --line: #e2dbd0;
+      --like: #2d6a4f;
+      --like-bg: #e8f5ee;
+      --nope: #9b2226;
+      --nope-bg: #fcecee;
+      --neutral: #6c757d;
+      --swiss: #c1121f;
+      --italy: #1d4e89;
+      --gold: #b8860b;
+      --shadow: 0 8px 28px rgba(26,34,44,.08);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    a { color: var(--italy); }
+
+    .app {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      min-height: 100vh;
+    }
+    @media (max-width: 980px) {
+      .app { grid-template-columns: 1fr; }
+      .side {
+        position: sticky; bottom: 0; z-index: 40;
+        max-height: 42vh; border-left: none !important;
+        border-top: 1px solid var(--line);
+      }
+      #map { height: 220px !important; }
+    }
+
+    .main { min-width: 0; }
+    .top {
+      position: sticky; top: 0; z-index: 30;
+      background: rgba(255,252,247,.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 16px;
+    }
+    .top h1 { margin: 0; font-size: 1.15rem; }
+    .top p { margin: 4px 0 0; font-size: 12.5px; color: var(--muted); }
+    .top-row {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      align-items: center; justify-content: space-between;
+      margin-top: 10px;
+    }
+    .filters { display: flex; flex-wrap: wrap; gap: 6px; }
+    .filters button, .chip-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 12.5px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .filters button.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .filters button.ch.active { background: var(--swiss); border-color: var(--swiss); }
+    .filters button.it.active { background: var(--italy); border-color: var(--italy); }
+    .note-bar {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      background: #fff8e8;
+      border: 1px solid #ead9a8;
+      border-radius: 10px;
+      padding: 8px 10px;
+    }
+
+    .content { padding: 14px 16px 40px; }
+    .section-title {
+      font-size: 15px;
+      margin: 18px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title .flag {
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .card.liked { border-color: #8fceab; box-shadow: 0 0 0 2px rgba(45,106,79,.15); }
+    .card.noped { opacity: .55; border-color: #e8b4b4; }
+    .card.noped .gallery { filter: grayscale(.35); }
+
+    .gallery {
+      position: relative;
+      aspect-ratio: 16/10;
+      background: #ddd;
+      overflow: hidden;
+    }
+    .gallery img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    .gallery img.show { display: block; }
+    .gal-nav {
+      position: absolute; inset: auto 0 0 0;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px;
+      background: linear-gradient(transparent, rgba(0,0,0,.45));
+    }
+    .gal-nav button {
+      width: 32px; height: 32px;
+      border: none; border-radius: 50%;
+      background: rgba(255,255,255,.9);
+      cursor: pointer; font-size: 14px;
+    }
+    .gal-dots {
+      display: flex; gap: 4px;
+    }
+    .gal-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,.45);
+    }
+    .gal-dots span.on { background: #fff; }
+    .badge-season {
+      position: absolute; top: 8px; left: 8px;
+      background: rgba(255,255,255,.92);
+      font-size: 10.5px; font-weight: 700;
+      padding: 3px 8px; border-radius: 999px;
+      color: var(--like);
+    }
+    .badge-country {
+      position: absolute; top: 8px; right: 8px;
+      font-size: 10.5px; font-weight: 700;
+      padding: 3px 8px; border-radius: 999px;
+      color: #fff;
+    }
+    .badge-country.ch { background: var(--swiss); }
+    .badge-country.it { background: var(--italy); }
+
+    .card-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; }
+    .card-body h3 { margin: 0 0 4px; font-size: 16px; }
+    .city { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; }
+    .desc { font-size: 13.5px; margin: 0 0 8px; flex: 1; }
+    .meta {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-bottom: 10px;
+    }
+    .tag {
+      font-size: 11px; font-weight: 600;
+      padding: 2px 8px; border-radius: 999px;
+      background: #f0ebe3; color: var(--muted);
+    }
+    .tag.hot { background: #ffe8e0; color: #9c3d1e; }
+    .tag.train { background: #e8f0fa; color: var(--italy); }
+    .tag.free { background: var(--like-bg); color: var(--like); }
+
+    .yt-btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: #ff0000;
+      color: #fff !important;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+    .yt-btn:hover { filter: brightness(1.08); }
+    .yt-btn::before { content: none; }
+    .actions {
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+    }
+    .actions button {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 9px 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      background: #fff;
+    }
+    .actions button.like { color: var(--like); }
+    .actions button.nope { color: var(--nope); }
+    .actions button.maybe { color: var(--neutral); }
+    .card.liked .actions button.like { background: var(--like); color: #fff; border-color: var(--like); }
+    .card.noped .actions button.nope { background: var(--nope); color: #fff; border-color: var(--nope); }
+    .card.maybed .actions button.maybe { background: #495057; color: #fff; border-color: #495057; }
+
+    .side {
+      border-left: 1px solid var(--line);
+      background: var(--paper);
+      display: flex;
+      flex-direction: column;
+      max-height: 100vh;
+      position: sticky;
+      top: 0;
+    }
+    #map {
+      height: 280px;
+      width: 100%;
+      border-bottom: 1px solid var(--line);
+      flex-shrink: 0;
+    }
+    .side-body {
+      padding: 12px;
+      overflow: auto;
+      flex: 1;
+    }
+    .side-body h2 {
+      margin: 0 0 6px;
+      font-size: 15px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .stat {
+      text-align: center;
+      background: #faf8f4;
+      border-radius: 10px;
+      padding: 8px 4px;
+      border: 1px solid var(--line);
+    }
+    .stat b { display: block; font-size: 18px; }
+    .stat span { font-size: 11px; color: var(--muted); }
+    .stat.like b { color: var(--like); }
+    .stat.nope b { color: var(--nope); }
+
+    .summary-list { list-style: none; padding: 0; margin: 0 0 12px; }
+    .summary-list li {
+      display: flex; gap: 8px; align-items: flex-start;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 6px;
+      font-size: 13px;
+      background: #fff;
+    }
+    .summary-list li img {
+      width: 48px; height: 48px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    .summary-list .rm {
+      margin-left: auto;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .empty { font-size: 13px; color: var(--muted); padding: 8px 0; }
+
+    .side-actions {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      margin-top: 8px;
+    }
+    .side-actions button, .side-actions a.btn {
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 10px;
+      padding: 9px 8px;
+      font-size: 12.5px;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--ink);
+    }
+    .side-actions button.primary {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    .export-box {
+      margin-top: 10px;
+      background: #f5f9ff;
+      border: 1px solid #cddff3;
+      border-radius: 12px;
+      padding: 10px;
+      font-size: 12.5px;
+      white-space: pre-wrap;
+      max-height: 160px;
+      overflow: auto;
+      display: none;
+    }
+    .export-box.show { display: block; }
+
+    .legend-map {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+    .pin {
+      width: 26px; height: 26px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      border: 2px solid #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,.3);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pin span { transform: rotate(45deg); font-size: 11px; color: #fff; font-weight: 700; }
+    .pin.ch { background: var(--swiss); }
+    .pin.it { background: var(--italy); }
+    .pin.liked { background: var(--like); box-shadow: 0 0 0 3px rgba(45,106,79,.35); }
+    .pin.noped { background: #aaa; }
+    .pin.maybed { background: #e9c46a; }
+    .pin.maybed span { color: #333; }
+
+    .links-top a {
+      font-size: 12px;
+      margin-right: 10px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .links-top a:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="main">
+      <header class="top">
+        <div class="links-top">
+          <a href="index.html">← 行程計劃書</a>
+          <a href="map.html">行程地圖</a>
+        </div>
+        <h1>景點喜好挑選器</h1>
+        <p>瑞士 ＋ 意大利 · 針對 <strong>8 月底–9 月初</strong> · 每點有 <strong>YouTube 睇實景</strong> · ❤️ 鐘意／✕ 唔去 · 右邊匯總</p>
+        <div class="top-row">
+          <div class="filters">
+            <button type="button" class="active" data-filter="all">全部</button>
+            <button type="button" class="ch" data-filter="ch">🇨🇭 瑞士</button>
+            <button type="button" class="it" data-filter="it">🇮🇹 意大利</button>
+            <button type="button" data-filter="liked">只睇 ❤️</button>
+            <button type="button" data-filter="unset">未揀</button>
+          </div>
+          <button type="button" class="chip-btn" id="btn-reset">重置全部選擇</button>
+        </div>
+        <div class="note-bar">
+          已 <strong>skip</strong> 主要靠落雪先靚嘅地方（滑雪場冬景、冰雪童話鎮等）。
+          少女峰標為「可選」——8 月係<strong>終年冰川</strong>仍有雪，唔係低地落雪；唔鍾意高山凍可以 ✕。
+          相片為夏日／晴天實景參考（授權圖），唔保證同一日天氣。
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="section-title"><span class="flag">🇨🇭</span> 瑞士（8 月底–9 月初友善）</div>
+        <div class="cards" id="cards-ch"></div>
+        <div class="section-title"><span class="flag">🇮🇹</span> 意大利（夏末仍熱，夜生活好）</div>
+        <div class="cards" id="cards-it"></div>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div id="map"></div>
+      <div class="side-body">
+        <h2>你嘅匯總</h2>
+        <p class="legend-map">地圖：綠=鐘意 · 黃=考慮 · 灰=唔去 · 紅/藍=未揀（瑞士/意）</p>
+        <div class="stats">
+          <div class="stat like"><b id="n-like">0</b><span>鐘意</span></div>
+          <div class="stat"><b id="n-maybe">0</b><span>考慮</span></div>
+          <div class="stat nope"><b id="n-nope">0</b><span>唔去</span></div>
+        </div>
+
+        <h2 style="font-size:13px;color:var(--like)">❤️ 我想去</h2>
+        <ul class="summary-list" id="list-like"></ul>
+        <div class="empty" id="empty-like">未有——撳景點卡嘅「鐘意」</div>
+
+        <h2 style="font-size:13px;color:#8a6a00;margin-top:12px">🤔 考慮</h2>
+        <ul class="summary-list" id="list-maybe"></ul>
+        <div class="empty" id="empty-maybe">無</div>
+
+        <div class="side-actions">
+          <button type="button" class="primary" id="btn-export">產生文字清單</button>
+          <button type="button" id="btn-copy">複製清單</button>
+          <a class="btn" href="index.html">返去行程書</a>
+        </div>
+        <div class="export-box" id="export-box"></div>
+        <p style="font-size:11.5px;color:var(--muted);margin-top:12px">
+          選擇會自動存喺呢部電腦瀏覽器（localStorage）。揀完可以截圖匯總，或者複製清單再叫我按你喜好改行程。
+        </p>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // —— 景點數據（8月底–9月初）——
+    const PLACES = [
+      // Switzerland
+      {
+        id: 'chapel-bridge',
+        youtube: 'https://www.youtube.com/results?search_query=Chapel%20Bridge%20Lucerne%20walking%20tour%204K',
+        country: 'ch',
+        name: '卡佩爾橋 Chapel Bridge',
+        city: '琉森 Luzern',
+        lat: 47.0516, lng: 8.3075,
+        days: '0.5 日',
+        tags: ['免費', '城市', '夜景都靚'],
+        tagClass: ['free'],
+        season: '8–9 月：木橋＋花＋湖，經典夏景',
+        desc: '瑞士最易打卡木橋。你去嘅時候係盛夏尾，橋上花槽、天鵝、老城都喺狀態，唔使等落雪。',
+        photos: ['pick-photos/lucerne_bridge_1.jpg', 'pick-photos/lucerne_bridge_2.jpg', 'pick-photos/lucerne_lake_1.jpg'],
+      },
+      {
+        id: 'lucerne-lake',
+        youtube: 'https://www.youtube.com/results?search_query=Lake%20Lucerne%20boat%20cruise%20Switzerland',
+        country: 'ch',
+        name: '琉森湖遊船／湖邊',
+        city: '琉森',
+        lat: 47.0502, lng: 8.3200,
+        days: '半日–1 日',
+        tags: ['湖', '輕鬆'],
+        season: '8–9 月：水暖人多，日落好',
+        desc: '坐船睇阿爾卑斯遠影，或者純湖邊散步。比上山平、節奏慢，啱恢復時差。',
+        photos: ['pick-photos/lucerne_lake_1.jpg', 'pick-photos/lucerne_lake_2.jpg'],
+      },
+      {
+        id: 'pilatus',
+        youtube: 'https://www.youtube.com/results?search_query=Mount%20Pilatus%20Switzerland%20summer%20travel',
+        country: 'ch',
+        name: '皮拉圖斯山（或瑞吉山）',
+        city: '琉森近郊',
+        lat: 46.9790, lng: 8.2560,
+        days: '1 日',
+        tags: ['山', '纜車／齒軌'],
+        season: '8–9 月：多數綠草岩石，唔係白雪覆蓋',
+        desc: '夏天上山係「綠阿爾卑斯」而唔係滑雪海報。遠眺或見白峰尖。想 Freeze 雪地感覺就唔係呢度。',
+        photos: ['pick-photos/pilatus_1.jpg', 'pick-photos/pilatus_2.jpg'],
+      },
+      {
+        id: 'landwasser',
+        youtube: 'https://www.youtube.com/results?search_query=Landwasser%20Viaduct%20train%20ride%20RhB',
+        country: 'ch',
+        name: '⭐ Landwasser 高架橋（坐火車過）',
+        city: '格勞賓登 · Filisur 附近',
+        lat: 46.6810, lng: 9.6750,
+        days: '半日車程（含搭車）',
+        tags: ['火車', '必經線'],
+        tagClass: ['train'],
+        season: '8–9 月：綠谷＋石拱＋紅火車，夏日經典樣',
+        desc: '你講過瑞士主要想坐呢段。RhB 阿爾布拉線普通火車就過橋；往聖莫里茨坐右邊。唔靠落雪先靚。',
+        photos: ['pick-photos/landwasser_1.jpg', 'pick-photos/landwasser_2.jpg', 'pick-photos/landwasser_3.jpg', 'pick-photos/landwasser2_1.jpg'],
+      },
+      {
+        id: 'bernina',
+        youtube: 'https://www.youtube.com/results?search_query=Bernina%20Express%20train%20ride%20St%20Moritz%20Tirano',
+        country: 'ch',
+        name: 'Bernina 線火車（去意大利）',
+        city: '聖莫里茨 → Tirano',
+        lat: 46.4100, lng: 10.0200,
+        days: '半日車程',
+        tags: ['火車', '過境'],
+        tagClass: ['train'],
+        season: '夏末風景線仍開，高處有冰川但沿線多數夏景',
+        desc: '世界遺產另一段，由 Engadin 落意大利。同 Landwasser 順路組合，唔使走回頭。',
+        photos: ['pick-photos/bernina_1.jpg', 'pick-photos/bernina_2.jpg'],
+      },
+      {
+        id: 'engadin',
+        youtube: 'https://www.youtube.com/results?search_query=St%20Moritz%20summer%20lake%20walk',
+        country: 'ch',
+        name: '聖莫里茨／Engadin 湖區（夏）',
+        city: '上恩加丁',
+        lat: 46.4908, lng: 9.8355,
+        days: '半日–1 日',
+        tags: ['湖', '貴'],
+        season: '8–9 月：高山湖＋步行，唔係滑雪季',
+        desc: '夏天係湖邊同山徑，物價高。可住衛星鎮。若只為過橋可唔使留長。',
+        photos: ['pick-photos/stmoritz_1.jpg', 'pick-photos/stmoritz_2.jpg'],
+      },
+      {
+        id: 'chur',
+        youtube: 'https://www.youtube.com/results?search_query=Chur%20Switzerland%20old%20town%20walk',
+        country: 'ch',
+        name: '庫爾老城',
+        city: 'Chur',
+        lat: 46.8499, lng: 9.5329,
+        days: '半日',
+        tags: ['城市', '轉乘'],
+        season: '全年ok',
+        desc: 'RhB 門戶，老城細而舒服。多數當過路基地，唔係大打卡。',
+        photos: ['pick-photos/chur_1.jpg', 'pick-photos/chur_2.jpg'],
+      },
+      {
+        id: 'interlaken',
+        youtube: 'https://www.youtube.com/results?search_query=Interlaken%20Switzerland%20summer%20travel%20guide',
+        country: 'ch',
+        name: '因特拉肯雙湖',
+        city: '伯尔尼茲高地',
+        lat: 46.6863, lng: 7.8632,
+        days: '1 日+',
+        tags: ['湖', '山區基地'],
+        season: '8–9 月：全綠＋遠峰；少女峰另計',
+        desc: '圖恩湖／布里恩茨湖之間，夏日綠色。去少女峰先要喺附近住。同 Landwasser 唔順路。',
+        photos: ['pick-photos/interlaken_1.jpg', 'pick-photos/interlaken_2.jpg'],
+      },
+      {
+        id: 'jungfrau',
+        youtube: 'https://www.youtube.com/results?search_query=Jungfraujoch%20Top%20of%20Europe%20summer%20visit',
+        country: 'ch',
+        name: '少女峰 Jungfraujoch（可選）',
+        city: '因特拉肯區',
+        lat: 46.5475, lng: 7.9800,
+        days: '大半日–1 日',
+        tags: ['冰川', '貴', '凍'],
+        tagClass: ['hot'],
+        season: '8 月：山頂終年冰雪（高海拔冰川），山下係綠',
+        desc: '唔係「低地落雪先靚」，而係成日都有冰川。想踩雪影冰就啱；唔想凍／慳錢／想保 Landwasser 路線可以 ✕。',
+        photos: ['pick-photos/jungfrau_1.jpg', 'pick-photos/jungfrau_2.jpg'],
+      },
+      {
+        id: 'zurich',
+        youtube: 'https://www.youtube.com/results?search_query=Zurich%20Switzerland%20walking%20tour%20summer',
+        country: 'ch',
+        name: '蘇黎世湖邊／舊城',
+        city: '蘇黎世',
+        lat: 47.3717, lng: 8.5420,
+        days: '半日',
+        tags: ['過境', '城市'],
+        season: '夏末湖邊有人游水、散步',
+        desc: '多數機場過路快閃。有半日可以舊城＋湖，唔使專程留兩晚。',
+        photos: ['pick-photos/zurich_1.jpg', 'pick-photos/zurich_2.jpg'],
+      },
+
+      // Italy
+      {
+        id: 'duomo-mi',
+        youtube: 'https://www.youtube.com/results?search_query=Milan%20Cathedral%20Duomo%20rooftop%20tour',
+        country: 'it',
+        name: '米蘭大教堂 Duomo',
+        city: '米蘭',
+        lat: 45.4642, lng: 9.1900,
+        days: '2–3 小時',
+        tags: ['建築', '屋頂可選'],
+        season: '8–9 月：好熱好曬，早上去',
+        desc: '哥德式巨製。夏末人多，屋頂視野一流。同長廊一齊打卡。',
+        photos: ['pick-photos/milan_duomo_1.jpg', 'pick-photos/milan_duomo_2.jpg'],
+      },
+      {
+        id: 'galleria',
+        youtube: 'https://www.youtube.com/results?search_query=Galleria%20Vittorio%20Emanuele%20II%20Milan',
+        country: 'it',
+        name: '埃曼紐二世長廊',
+        city: '米蘭',
+        lat: 45.4656, lng: 9.1900,
+        days: '45 分',
+        tags: ['免費', '打卡'],
+        tagClass: ['free'],
+        season: '全年',
+        desc: '連大教堂廣場，拱廊影相。免費，順路。',
+        photos: ['pick-photos/milan_galleria_1.jpg', 'pick-photos/milan_galleria_2.jpg'],
+      },
+      {
+        id: 'navigli',
+        youtube: 'https://www.youtube.com/results?search_query=Navigli%20Milan%20night%20aperitivo',
+        country: 'it',
+        name: 'Navigli 運河夜生活',
+        city: '米蘭',
+        lat: 45.4480, lng: 9.1740,
+        days: '一晚',
+        tags: ['夜貓', 'Aperitivo'],
+        season: '夏末夜晚戶外位旺',
+        desc: '你夜貓最啱。Aperitivo 一杯連小食，bar hop 到 12 點。',
+        photos: ['pick-photos/milan_galleria_2.jpg', 'pick-photos/milan_duomo_1.jpg'],
+      },
+      {
+        id: 'san-marco',
+        youtube: 'https://www.youtube.com/results?search_query=St%20Marks%20Square%20Venice%20walking%20tour',
+        country: 'it',
+        name: '聖馬可廣場',
+        city: '威尼斯',
+        lat: 45.4342, lng: 12.3388,
+        days: '2–3 小時',
+        tags: ['必去', '夜景差天共地'],
+        season: '8–9 月：極多人、熱；早／夜去好得多',
+        desc: '水城核心。建議早上去教堂，夜晚再影一次廣場。',
+        photos: ['pick-photos/venice_square_1.jpg', 'pick-photos/venice_square_2.jpg'],
+      },
+      {
+        id: 'grand-canal',
+        youtube: 'https://www.youtube.com/results?search_query=Venice%20Grand%20Canal%20vaporetto%204K',
+        country: 'it',
+        name: '大運河＋Vaporetto',
+        city: '威尼斯',
+        lat: 45.4380, lng: 12.3358,
+        days: '半日',
+        tags: ['船', '移動打卡'],
+        season: '夏末水城最「威尼斯」',
+        desc: '坐 1 號船遊大運河，本身就係景點。比貢多拉平好多。',
+        photos: ['pick-photos/venice_canal_1.jpg', 'pick-photos/venice_canal_2.jpg', 'pick-photos/venice_canal_3.jpg'],
+      },
+      {
+        id: 'rialto',
+        youtube: 'https://www.youtube.com/results?search_query=Rialto%20Bridge%20Venice%20walk',
+        country: 'it',
+        name: '里阿爾托橋',
+        city: '威尼斯',
+        lat: 45.4380, lng: 12.3359,
+        days: '30–60 分',
+        tags: ['免費', '橋'],
+        tagClass: ['free'],
+        season: '全年；夏日好曬',
+        desc: '大運河最出名橋。人多，影完就走或配合船遊。',
+        photos: ['pick-photos/venice_rialto_1.jpg', 'pick-photos/venice_rialto_2.jpg'],
+      },
+      {
+        id: 'florence-duomo',
+        youtube: 'https://www.youtube.com/results?search_query=Florence%20Cathedral%20Duomo%20tour',
+        country: 'it',
+        name: '花之聖母大教堂',
+        city: '佛羅倫斯',
+        lat: 43.7731, lng: 11.2560,
+        days: '2–3 小時',
+        tags: ['建築', '登頂可選'],
+        season: '夏末強光，大理石反光好曬',
+        desc: '文藝復興地標。外觀免費打卡；入內／登頂要票同預約。',
+        photos: ['pick-photos/florence_duomo_1.jpg', 'pick-photos/florence_duomo_2.jpg'],
+      },
+      {
+        id: 'michelangelo',
+        youtube: 'https://www.youtube.com/results?search_query=Piazzale%20Michelangelo%20Florence%20sunset',
+        country: 'it',
+        name: '米開朗基羅廣場夕陽',
+        city: '佛羅倫斯',
+        lat: 43.7629, lng: 11.2650,
+        days: '1 小時',
+        tags: ['免費', '夕陽'],
+        tagClass: ['free'],
+        season: '8–9 月日長，夕陽時間夠',
+        desc: '俯瞰全城免費位。黃昏去最抵。',
+        photos: ['pick-photos/florence_view_1.jpg', 'pick-photos/florence_view_2.jpg'],
+      },
+      {
+        id: 'pisa',
+        youtube: 'https://www.youtube.com/results?search_query=Leaning%20Tower%20of%20Pisa%20walking%20tour',
+        country: 'it',
+        name: '⭐ 比薩斜塔（奇蹟廣場）',
+        city: '比薩',
+        lat: 43.7230, lng: 10.3966,
+        days: '半日',
+        tags: ['打卡', '過路得'],
+        season: '夏末好熱，早上去',
+        desc: '你話要睇。廣場影塔免費；登塔另票。可由翡冷翠過路再落羅馬。',
+        photos: ['pick-photos/pisa_1.jpg', 'pick-photos/pisa_2.jpg'],
+      },
+      {
+        id: 'colosseum',
+        youtube: 'https://www.youtube.com/results?search_query=Colosseum%20Rome%20tour%20inside',
+        country: 'it',
+        name: '羅馬競技場',
+        city: '羅馬',
+        lat: 41.8902, lng: 12.4922,
+        days: '2 小時',
+        tags: ['必去', '要預約'],
+        season: '石材吸熱，8–9 月極熱',
+        desc: '古羅馬代表。務必網上預約。夜晚外圍燈光都好影。',
+        photos: ['pick-photos/rome_colosseum_1.jpg', 'pick-photos/rome_colosseum_2.jpg'],
+      },
+      {
+        id: 'trevi',
+        youtube: 'https://www.youtube.com/results?search_query=Trevi%20Fountain%20Rome%20night',
+        country: 'it',
+        name: '特萊維噴泉',
+        city: '羅馬',
+        lat: 41.9009, lng: 12.4833,
+        days: '30–45 分',
+        tags: ['免費', '夜必去'],
+        tagClass: ['free'],
+        season: '全年；夜景優於日景',
+        desc: '人山人海。建議夜晚再去一次，同日景差好遠。',
+        photos: ['pick-photos/rome_trevi_1.jpg', 'pick-photos/rome_trevi_2.jpg'],
+      },
+      {
+        id: 'pantheon',
+        youtube: 'https://www.youtube.com/results?search_query=Pantheon%20Rome%20interior%20tour',
+        country: 'it',
+        name: '萬神殿',
+        city: '羅馬',
+        lat: 41.8986, lng: 12.4769,
+        days: '45 分',
+        tags: ['建築'],
+        season: '全年',
+        desc: '保存最好古羅馬建築之一。室內圓頂圓孔好經典。',
+        photos: ['pick-photos/rome_pantheon_1.jpg', 'pick-photos/rome_pantheon_2.jpg'],
+      },
+      {
+        id: 'trastevere',
+        youtube: 'https://www.youtube.com/results?search_query=Trastevere%20Rome%20night%20walk',
+        country: 'it',
+        name: 'Trastevere 夜巷',
+        city: '羅馬',
+        lat: 41.8890, lng: 12.4690,
+        days: '一晚',
+        tags: ['夜貓', '食'],
+        season: '夏末戶外晚餐旺到深夜',
+        desc: '羅馬夜生活首選。巷仔、酒、街頭樂，啱你 12 點先瞓。',
+        photos: ['pick-photos/rome_trastevere_1.jpg', 'pick-photos/rome_trastevere_2.jpg'],
+      },
+      {
+        id: 'vatican',
+        youtube: 'https://www.youtube.com/results?search_query=St%20Peters%20Basilica%20Vatican%20tour',
+        country: 'it',
+        name: '梵蒂岡／聖彼得',
+        city: '梵蒂岡（羅馬）',
+        lat: 41.9022, lng: 12.4539,
+        days: '半日–1 日',
+        tags: ['博物館', '要預約'],
+        season: '夏末極多人',
+        desc: '超經典但食時間。羅馬夜數少可以只影廣場外觀，博物館有心先入。',
+        photos: ['pick-photos/vatican_1.jpg', 'pick-photos/vatican_2.jpg'],
+      },
+      {
+        id: 'cinque-terre',
+        youtube: 'https://www.youtube.com/results?search_query=Cinque%20Terre%20Italy%20summer%20travel',
+        country: 'it',
+        name: '五漁村 Cinque Terre',
+        city: '利古里亞',
+        lat: 44.1270, lng: 9.7090,
+        days: '1–2 日',
+        tags: ['海岸', '行山', '繞路'],
+        tagClass: ['hot'],
+        season: '8–9 月：最靚季節之一，但好熱好擠',
+        desc: '彩色崖岸村。夏末風景頂級，但同「北意高鐵線」稍繞，10 日行程難兼顧，當加分項。',
+        photos: ['pick-photos/cinqueterre_1.jpg', 'pick-photos/cinqueterre_2.jpg'],
+      },
+      {
+        id: 'como',
+        youtube: 'https://www.youtube.com/results?search_query=Lake%20Como%20Italy%20boat%20tour',
+        country: 'it',
+        name: '科莫湖 Lake Como',
+        city: '米蘭近郊',
+        lat: 45.9425, lng: 9.2644,
+        days: '1 日',
+        tags: ['湖', '日歸'],
+        season: '夏末湖邊度假感',
+        desc: '可由米蘭日歸。優雅但半日車，時間緊可 ✕。',
+        photos: ['pick-photos/como_1.jpg', 'pick-photos/como_2.jpg'],
+      },
+      {
+        id: 'verona',
+        youtube: 'https://www.youtube.com/results?search_query=Verona%20Italy%20walking%20tour',
+        country: 'it',
+        name: '維羅納（羅密歐朱麗葉城）',
+        city: '維羅納',
+        lat: 45.4384, lng: 10.9916,
+        days: '半日–1 日',
+        tags: ['古城', '可過路'],
+        season: '夏末好行',
+        desc: '米蘭↔威尼斯之間可停。競技場、老城。想水城多啲可以 skip。',
+        photos: ['pick-photos/verona_1.jpg', 'pick-photos/verona_2.jpg'],
+      },
+    ];
+
+    const STORAGE_KEY = 'ch-it-sight-picks-v1';
+    let picks = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    let filter = 'all';
+    const galIndex = {};
+
+    // Map
+    const map = L.map('map', { scrollWheelZoom: true }).setView([45.5, 10.2], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    const markers = {};
+
+    function pinIcon(place) {
+      const st = picks[place.id] || 'unset';
+      let cls = place.country;
+      if (st === 'like') cls = 'liked';
+      if (st === 'nope') cls = 'noped';
+      if (st === 'maybe') cls = 'maybed';
+      const label = st === 'like' ? '♥' : st === 'nope' ? '×' : st === 'maybe' ? '?' : (place.country === 'ch' ? '瑞' : '意');
+      return L.divIcon({
+        className: '',
+        html: `<div class="pin ${cls}"><span>${label}</span></div>`,
+        iconSize: [26, 26],
+        iconAnchor: [13, 26],
+        popupAnchor: [0, -20],
+      });
+    }
+
+    function save() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(picks));
+      renderSummary();
+      updateMarkers();
+      applyFilter();
+    }
+
+    function setPick(id, val) {
+      if (val === 'unset') delete picks[id];
+      else picks[id] = val;
+      const card = document.querySelector(`.card[data-id="${id}"]`);
+      if (card) {
+        card.classList.remove('liked', 'noped', 'maybed');
+        if (val === 'like') card.classList.add('liked');
+        if (val === 'nope') card.classList.add('noped');
+        if (val === 'maybe') card.classList.add('maybed');
+      }
+      save();
+    }
+
+    function updateMarkers() {
+      PLACES.forEach(p => {
+        if (markers[p.id]) {
+          markers[p.id].setIcon(pinIcon(p));
+        }
+      });
+    }
+
+    function renderCards() {
+      const ch = document.getElementById('cards-ch');
+      const it = document.getElementById('cards-it');
+      ch.innerHTML = '';
+      it.innerHTML = '';
+
+      PLACES.forEach(p => {
+        galIndex[p.id] = 0;
+        const st = picks[p.id] || 'unset';
+        const card = document.createElement('article');
+        card.className = 'card' + (st === 'like' ? ' liked' : st === 'nope' ? ' noped' : st === 'maybe' ? ' maybed' : '');
+        card.dataset.id = p.id;
+        card.dataset.country = p.country;
+        card.dataset.status = st;
+
+        const tags = (p.tags || []).map((t, i) => {
+          const extra = (p.tagClass && p.tagClass[i]) ? p.tagClass[i] : '';
+          // map known tags
+          let cls = '';
+          if (t.includes('免費')) cls = 'free';
+          if (t.includes('火車')) cls = 'train';
+          if (t.includes('貴') || t.includes('繞路') || t.includes('凍')) cls = 'hot';
+          return `<span class="tag ${cls}">${t}</span>`;
+        }).join('');
+
+        const imgs = p.photos.map((src, i) =>
+          `<img src="${src}" alt="${p.name}" class="${i === 0 ? 'show' : ''}" loading="lazy" data-i="${i}" onerror="this.style.background='#ccc'" />`
+        ).join('');
+
+        const dots = p.photos.map((_, i) =>
+          `<span class="${i === 0 ? 'on' : ''}" data-dot="${i}"></span>`
+        ).join('');
+
+        card.innerHTML = `
+          <div class="gallery" data-gid="${p.id}">
+            ${imgs}
+            <span class="badge-season">8–9月友善</span>
+            <span class="badge-country ${p.country}">${p.country === 'ch' ? '瑞士' : '意大利'}</span>
+            <div class="gal-nav">
+              <button type="button" data-prev="${p.id}" aria-label="上一張">‹</button>
+              <div class="gal-dots">${dots}</div>
+              <button type="button" data-next="${p.id}" aria-label="下一張">›</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3>${p.name}</h3>
+            <div class="city">${p.city} · 建議 ${p.days}</div>
+            <p class="desc">${p.desc}</p>
+            <div class="meta">${tags}<span class="tag">${p.season}</span></div>
+            <a class="yt-btn" href="${p.youtube}" target="_blank" rel="noopener">▶ YouTube 睇實景</a>
+            <div class="actions">
+              <button type="button" class="like" data-pick="like" data-id="${p.id}">❤️ 鐘意</button>
+              <button type="button" class="maybe" data-pick="maybe" data-id="${p.id}">🤔 考慮</button>
+              <button type="button" class="nope" data-pick="nope" data-id="${p.id}">✕ 唔去</button>
+            </div>
+          </div>
+        `;
+
+        (p.country === 'ch' ? ch : it).appendChild(card);
+
+        const m = L.marker([p.lat, p.lng], { icon: pinIcon(p) });
+        m.bindPopup(`<b>${p.name}</b><br/>${p.city}<br/><small>${p.season}</small><br/><a href="${p.youtube}" target="_blank" rel="noopener">▶ YouTube</a>`);
+        m.on('click', () => {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.style.outline = '2px solid #1d4e89';
+          setTimeout(() => card.style.outline = '', 1200);
+        });
+        m.addTo(map);
+        markers[p.id] = m;
+      });
+
+      // events
+      document.querySelectorAll('[data-pick]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const val = btn.dataset.pick;
+          // toggle off if same
+          if (picks[id] === val) setPick(id, 'unset');
+          else setPick(id, val);
+        });
+      });
+      document.querySelectorAll('[data-prev]').forEach(btn => {
+        btn.addEventListener('click', e => { e.stopPropagation(); slide(btn.dataset.prev, -1); });
+      });
+      document.querySelectorAll('[data-next]').forEach(btn => {
+        btn.addEventListener('click', e => { e.stopPropagation(); slide(btn.dataset.next, 1); });
+      });
+
+      map.fitBounds(L.latLngBounds(PLACES.map(p => [p.lat, p.lng])).pad(0.12));
+      renderSummary();
+    }
+
+    function slide(id, dir) {
+      const place = PLACES.find(p => p.id === id);
+      if (!place) return;
+      const n = place.photos.length;
+      galIndex[id] = (galIndex[id] + dir + n) % n;
+      const gal = document.querySelector(`.gallery[data-gid="${id}"]`);
+      if (!gal) return;
+      gal.querySelectorAll('img').forEach((img, i) => {
+        img.classList.toggle('show', i === galIndex[id]);
+      });
+      gal.querySelectorAll('[data-dot]').forEach((d, i) => {
+        d.classList.toggle('on', i === galIndex[id]);
+      });
+    }
+
+    function renderSummary() {
+      const liked = PLACES.filter(p => picks[p.id] === 'like');
+      const maybed = PLACES.filter(p => picks[p.id] === 'maybe');
+      const noped = PLACES.filter(p => picks[p.id] === 'nope');
+      document.getElementById('n-like').textContent = liked.length;
+      document.getElementById('n-maybe').textContent = maybed.length;
+      document.getElementById('n-nope').textContent = noped.length;
+
+      fillList('list-like', 'empty-like', liked);
+      fillList('list-maybe', 'empty-maybe', maybed);
+    }
+
+    function fillList(listId, emptyId, arr) {
+      const ul = document.getElementById(listId);
+      const empty = document.getElementById(emptyId);
+      ul.innerHTML = '';
+      empty.style.display = arr.length ? 'none' : 'block';
+      arr.forEach(p => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <img src="${p.photos[0]}" alt="" onerror="this.style.display='none'" />
+          <div>
+            <strong>${p.name}</strong><br/>
+            <span style="color:var(--muted);font-size:12px">${p.city} · ${p.days}</span><br/>
+            <a href="${p.youtube}" target="_blank" rel="noopener" style="font-size:12px;color:#c00">▶ YouTube</a>
+          </div>
+          <button type="button" class="rm" title="移除" data-rm="${p.id}">×</button>
+        `;
+        ul.appendChild(li);
+      });
+      ul.querySelectorAll('[data-rm]').forEach(b => {
+        b.addEventListener('click', () => setPick(b.dataset.rm, 'unset'));
+      });
+    }
+
+    function applyFilter() {
+      document.querySelectorAll('.card').forEach(card => {
+        const st = picks[card.dataset.id] || 'unset';
+        const c = card.dataset.country;
+        let show = true;
+        if (filter === 'ch') show = c === 'ch';
+        if (filter === 'it') show = c === 'it';
+        if (filter === 'liked') show = st === 'like';
+        if (filter === 'unset') show = st === 'unset';
+        card.style.display = show ? '' : 'none';
+      });
+      // hide empty section titles roughly
+    }
+
+    document.querySelectorAll('[data-filter]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filter = btn.dataset.filter;
+        applyFilter();
+      });
+    });
+
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      if (!confirm('清除全部鐘意／唔去選擇？')) return;
+      picks = {};
+      localStorage.removeItem(STORAGE_KEY);
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('liked', 'noped', 'maybed'));
+      save();
+    });
+
+    function buildText() {
+      const liked = PLACES.filter(p => picks[p.id] === 'like');
+      const maybed = PLACES.filter(p => picks[p.id] === 'maybe');
+      const noped = PLACES.filter(p => picks[p.id] === 'nope');
+      let t = '【瑞士＋意大利景點喜好】8月底–9月初\n\n';
+      t += '❤️ 想去（' + liked.length + '）\n';
+      liked.forEach(p => { t += `· ${p.name}（${p.city}）— ${p.days}\n`; });
+      t += '\n🤔 考慮（' + maybed.length + '）\n';
+      maybed.forEach(p => { t += `· ${p.name}（${p.city}）\n`; });
+      t += '\n✕ 唔去（' + noped.length + '）\n';
+      noped.forEach(p => { t += `· ${p.name}\n`; });
+      t += '\n— 用呢份清單再排 10 日行程 —';
+      return t;
+    }
+
+    document.getElementById('btn-export').addEventListener('click', () => {
+      const box = document.getElementById('export-box');
+      box.textContent = buildText();
+      box.classList.add('show');
+    });
+    document.getElementById('btn-copy').addEventListener('click', async () => {
+      const t = buildText();
+      document.getElementById('export-box').textContent = t;
+      document.getElementById('export-box').classList.add('show');
+      try {
+        await navigator.clipboard.writeText(t);
+        alert('已複製清單到剪貼板！可以貼俾我幫你改行程。');
+      } catch {
+        alert('請手動選取右邊文字複製。');
+      }
+    });
+
+    renderCards();
+  </script>
+</body>
+</html>

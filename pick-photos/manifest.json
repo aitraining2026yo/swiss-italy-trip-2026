@@ -1,0 +1,104 @@
+{
+  "lucerne_bridge": [
+    "lucerne_bridge_1.jpg",
+    "lucerne_bridge_2.jpg"
+  ],
+  "lucerne_lake": [
+    "lucerne_lake_1.jpg",
+    "lucerne_lake_2.jpg"
+  ],
+  "pilatus": [],
+  "landwasser": [
+    "landwasser_1.jpg",
+    "landwasser_2.jpg",
+    "landwasser_3.jpg"
+  ],
+  "landwasser2": [
+    "landwasser2_1.jpg",
+    "landwasser2_2.jpg"
+  ],
+  "chur": [
+    "chur_1.jpg",
+    "chur_2.jpg"
+  ],
+  "stmoritz": [
+    "stmoritz_1.jpg",
+    "stmoritz_2.jpg"
+  ],
+  "bernina": [
+    "bernina_1.jpg",
+    "bernina_2.jpg"
+  ],
+  "interlaken": [
+    "interlaken_1.jpg",
+    "interlaken_2.jpg"
+  ],
+  "zurich": [
+    "zurich_1.jpg",
+    "zurich_2.jpg"
+  ],
+  "milan_duomo": [
+    "milan_duomo_1.jpg",
+    "milan_duomo_2.jpg"
+  ],
+  "milan_galleria": [
+    "milan_galleria_1.jpg",
+    "milan_galleria_2.jpg"
+  ],
+  "venice_square": [
+    "venice_square_1.jpg",
+    "venice_square_2.jpg"
+  ],
+  "venice_canal": [
+    "venice_canal_1.jpg",
+    "venice_canal_2.jpg",
+    "venice_canal_3.jpg"
+  ],
+  "venice_rialto": [
+    "venice_rialto_1.jpg",
+    "venice_rialto_2.jpg"
+  ],
+  "florence_duomo": [
+    "florence_duomo_1.jpg",
+    "florence_duomo_2.jpg"
+  ],
+  "florence_view": [
+    "florence_view_1.jpg",
+    "florence_view_2.jpg"
+  ],
+  "pisa": [
+    "pisa_1.jpg",
+    "pisa_2.jpg"
+  ],
+  "rome_colosseum": [
+    "rome_colosseum_1.jpg"
+  ],
+  "rome_trevi": [
+    "rome_trevi_1.jpg",
+    "rome_trevi_2.jpg"
+  ],
+  "rome_pantheon": [
+    "rome_pantheon_1.jpg",
+    "rome_pantheon_2.jpg"
+  ],
+  "rome_trastevere": [
+    "rome_trastevere_1.jpg",
+    "rome_trastevere_2.jpg"
+  ],
+  "vatican": [
+    "vatican_1.jpg",
+    "vatican_2.jpg"
+  ],
+  "cinqueterre": [
+    "cinqueterre_1.jpg",
+    "cinqueterre_2.jpg"
+  ],
+  "como": [
+    "como_1.jpg",
+    "como_2.jpg"
+  ],
+  "verona": [
+    "verona_1.jpg",
+    "verona_2.jpg"
+  ]
+}
