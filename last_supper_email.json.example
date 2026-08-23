@@ -1,9 +1,0 @@
-{
-  "to": "you@example.com",
-  "from": "you@example.com",
-  "smtp_host": "smtp.gmail.com",
-  "smtp_port": 587,
-  "username": "you@example.com",
-  "password": "YOUR_GMAIL_APP_PASSWORD",
-  "enabled": true
-}

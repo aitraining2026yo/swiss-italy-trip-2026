@@ -1,5 +1,4 @@
 .DS_Store
-last_supper_email.json
 *.log
 __pycache__/
 *.pyc
