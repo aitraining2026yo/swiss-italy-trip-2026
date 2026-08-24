@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>地圖｜瑞士 4 晚 + Landwasser + 比薩</title>
+  <title>地圖｜13 日行程 · 少女峰 + Landwasser + 比薩</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <style>
     :root {
@@ -66,8 +66,8 @@
   <div class="layout">
     <aside class="sidebar">
       <a class="back" href="index.html">← 返回計劃書</a>
-      <h1>瑞士 4 晚 + Landwasser</h1>
-      <p class="sub">琉森 2 晚加厚瑞士感 · 紅星 = Landwasser · 比薩過路 · 羅馬 2 晚</p>
+      <h1>13 日行程地圖</h1>
+      <p class="sub">瑞士 6 晚 + 意大利 7 晚 · 紅星 = Landwasser · 比薩當日來回 · 08-26 出發 → 09-09 回程</p>
 
       <div class="legend">
         <div class="legend-row"><label><input type="checkbox" id="tog-core" checked /> <span class="swatch core">★</span> Landwasser</label></div>
@@ -86,21 +86,26 @@
       </div>
 
       <div class="route-box">
-        ZRH → <b>Luzern×2</b> → Chur → <b style="color:#c1121f">Landwasser</b> → St.Moritz → Bernina → Tirano → Milano → Venezia → Firenze → <b>Pisa</b> → Roma → FCO
+        ZRH → <b>Luzern×2</b> → <b>Interlaken×2（少女峰）</b> → Chur → <b style="color:#c1121f">Landwasser</b> → Bernina → Tirano → <b>Milano×2</b> → Verona → <b>Venezia×2</b> → <b>Firenze×2</b> → <b>Pisa</b> → <b>Roma×2</b> → FCO
         <div class="verdict">
-          ✅ 瑞士約 <b>4 晚</b>／意大利約 <b>6 晚</b>——比「意主瑞副」平衡<br />
-          ⚠️ 羅馬只 2 晚：D10 要看完重點；回程選午／午後機
+          ✅ 瑞士 <b>6 晚</b>／意大利 <b>7 晚</b>，共 13 晚<br />
+          📌 08-26 夜出發 · 08-27 07:30 抵蘇黎世 · <b>09-09 13:00 羅馬起飛</b>（無替代日期）
         </div>
       </div>
 
-      <div class="day-item" data-focus="lucerne"><div class="n">D1–2</div><div><b>琉森 ×2</b></div></div>
-      <div class="day-item" data-focus="chur"><div class="n">D3</div><div><b>庫爾</b></div></div>
-      <div class="day-item" data-focus="landwasser"><div class="n">D4</div><div><b>Landwasser ⭐</b></div></div>
-      <div class="day-item" data-focus="bernina"><div class="n">D5</div><div><b>Bernina→米蘭</b></div></div>
-      <div class="day-item" data-focus="venice"><div class="n">D6–7</div><div><b>威尼斯</b></div></div>
-      <div class="day-item" data-focus="florence"><div class="n">D8</div><div><b>翡冷翠</b></div></div>
-      <div class="day-item" data-focus="pisa"><div class="n">D9</div><div><b>比薩→羅馬</b></div></div>
-      <div class="day-item" data-focus="rome"><div class="n">D10–11</div><div><b>羅馬→回港</b></div></div>
+      <div class="day-item" data-focus="lucerne"><div class="n">D1–2</div><div><b>琉森 ×2</b><br /><span style="font-size:11px;color:#667">08-27、08-28</span></div></div>
+      <div class="day-item" data-focus="interlaken"><div class="n">D3–4</div><div><b>因特拉肯 ×2 · 少女峰 ⭐</b><br /><span style="font-size:11px;color:#667">08-29、08-30</span></div></div>
+      <div class="day-item" data-focus="chur"><div class="n">D5</div><div><b>庫爾</b><br /><span style="font-size:11px;color:#667">08-31</span></div></div>
+      <div class="day-item" data-focus="landwasser"><div class="n">D6</div><div><b>Landwasser ⭐</b><br /><span style="font-size:11px;color:#667">09-01 上午</span></div></div>
+      <div class="day-item" data-focus="bernina"><div class="n">D6</div><div><b>Bernina→米蘭</b><br /><span style="font-size:11px;color:#667">09-01 下午</span></div></div>
+      <div class="day-item" data-focus="bernina"><div class="n">D7</div><div><b>米蘭 · 最後的晚餐</b><br /><span style="font-size:11px;color:#667">09-02</span></div></div>
+      <div class="day-item" data-focus="verona"><div class="n">D8</div><div><b>維羅納（半日過路）</b><br /><span style="font-size:11px;color:#667">09-03</span></div></div>
+      <div class="day-item" data-focus="venice"><div class="n">D8–9</div><div><b>威尼斯 ×2</b><br /><span style="font-size:11px;color:#667">09-03、09-04</span></div></div>
+      <div class="day-item" data-focus="florence"><div class="n">D10</div><div><b>翡冷翠 · 登穹頂</b><br /><span style="font-size:11px;color:#667">09-05</span></div></div>
+      <div class="day-item" data-focus="pisa"><div class="n">D11</div><div><b>比薩 ⭐ + 大衛 + 日落</b><br /><span style="font-size:11px;color:#667">09-06（當日來回）</span></div></div>
+      <div class="day-item" data-focus="rome"><div class="n">D12</div><div><b>羅馬 · 競技場</b><br /><span style="font-size:11px;color:#667">09-07 ⚠️ 罷工・休館日</span></div></div>
+      <div class="day-item" data-focus="rome"><div class="n">D13</div><div><b>梵蒂岡 + 博爾蓋塞 ⭐</b><br /><span style="font-size:11px;color:#667">09-08</span></div></div>
+      <div class="day-item" data-focus="rome"><div class="n">D14</div><div><b>FCO → 香港</b><br /><span style="font-size:11px;color:#667">09-09 13:00 起飛</span></div></div>
     </aside>
     <div id="map"></div>
   </div>
@@ -128,20 +133,26 @@
     };
 
     L.marker([46.6810, 9.6750], { icon: icon('core', '★'), zIndexOffset: 1000 })
-      .bindPopup('<span class="popup-type core">核心</span><b>Landwasser Viaduct</b>D4 · 往聖莫里茨坐右邊')
+      .bindPopup('<span class="popup-type core">核心</span><b>Landwasser Viaduct</b>D6 · 09-01 · 往聖莫里茨方向坐右邊')
       .addTo(layers.core);
 
     [
       { name: '卡佩爾橋', lat: 47.0516, lng: 8.3075, n: 'D1–2' },
-      { name: '皮拉圖斯', lat: 46.9790, lng: 8.2560, n: 'D2' },
-      { name: '庫爾老城', lat: 46.8499, lng: 9.5329, n: 'D3' },
-      { name: '聖莫里茨湖', lat: 46.4908, lng: 9.8355, n: 'D4' },
-      { name: '米蘭大教堂', lat: 45.4642, lng: 9.1900, n: 'D5–6' },
-      { name: '聖馬可', lat: 45.4342, lng: 12.3388, n: 'D6–7' },
-      { name: '花之聖母大教堂', lat: 43.7731, lng: 11.2560, n: 'D8' },
-      { name: '比薩斜塔', lat: 43.7230, lng: 10.3966, n: 'D9 必須' },
-      { name: '競技場', lat: 41.8902, lng: 12.4922, n: 'D10' },
-      { name: 'Trastevere', lat: 41.8890, lng: 12.4690, n: '夜' },
+      { name: '皮拉圖斯', lat: 46.9790, lng: 8.2560, n: 'D2 · 08-28' },
+      { name: '少女峰', lat: 46.5474, lng: 7.9808, n: 'D4 · 08-30 ⭐' },
+      { name: '庫爾老城', lat: 46.8499, lng: 9.5329, n: 'D5 · 08-31' },
+      { name: '米蘭大教堂', lat: 45.4642, lng: 9.1900, n: 'D6–7' },
+      { name: '感恩聖母堂（最後的晚餐）', lat: 45.4659, lng: 9.1706, n: 'D7 · 09-02' },
+      { name: '維羅納圓形競技場', lat: 45.4390, lng: 10.9944, n: 'D8 · 09-03 半日' },
+      { name: '聖馬可', lat: 45.4342, lng: 12.3388, n: 'D8–9' },
+      { name: '花之聖母大教堂', lat: 43.7731, lng: 11.2560, n: 'D10 · 09-05 登穹頂' },
+      { name: '比薩斜塔', lat: 43.7230, lng: 10.3966, n: 'D11 · 09-06 上午 ⭐' },
+      { name: '學院美術館（大衛）', lat: 43.7767, lng: 11.2585, n: 'D11 · 15:30' },
+      { name: '米開朗基羅廣場', lat: 43.7629, lng: 11.2650, n: 'D11 · 19:50 日落 ⭐' },
+      { name: '競技場', lat: 41.8902, lng: 12.4922, n: 'D12 · 09-07' },
+      { name: '梵蒂岡博物館', lat: 41.9065, lng: 12.4536, n: 'D13 · 09-08 08:00 ⭐' },
+      { name: '博爾蓋塞美術館', lat: 41.9142, lng: 12.4922, n: 'D13 · 17:00 ⭐' },
+      { name: 'Trastevere', lat: 41.8890, lng: 12.4690, n: 'D12 夜' },
     ].forEach(s => {
       L.marker([s.lat, s.lng], { icon: icon('spot', '景') })
         .bindPopup(`<span class="popup-type spot">景點</span><b>${s.name}</b>${s.n}`)
@@ -149,13 +160,13 @@
     });
 
     const stays = [
-      { name: '琉森', lat: 47.0505, lng: 8.3100, n: '2晚', o: 1 },
-      { name: '庫爾', lat: 46.8530, lng: 9.5300, n: '1晚', o: 2 },
-      { name: 'Engadin', lat: 46.5340, lng: 9.8730, n: '1晚', o: 3 },
-      { name: '米蘭', lat: 45.4860, lng: 9.2040, n: '1晚', o: 4 },
-      { name: '威尼斯', lat: 45.4420, lng: 12.3260, n: '2晚', o: 5 },
-      { name: '翡冷翠', lat: 43.7765, lng: 11.2480, n: '1晚', o: 6 },
-      { name: '羅馬', lat: 41.9005, lng: 12.5020, n: '2晚', o: 7 },
+      { name: '琉森', lat: 47.0505, lng: 8.3100, n: '2晚 · 08-27、08-28', o: 1 },
+      { name: '因特拉肯', lat: 46.6863, lng: 7.8632, n: '2晚 · 08-29、08-30', o: 2 },
+      { name: '庫爾', lat: 46.8530, lng: 9.5300, n: '1晚 · 08-31', o: 3 },
+      { name: '米蘭', lat: 45.4860, lng: 9.2040, n: '2晚 · 09-01、09-02', o: 4 },
+      { name: '威尼斯', lat: 45.4420, lng: 12.3260, n: '2晚 · 09-03、09-04', o: 5 },
+      { name: '翡冷翠', lat: 43.7765, lng: 11.2480, n: '2晚 · 09-05、09-06', o: 6 },
+      { name: '羅馬', lat: 41.9005, lng: 12.5020, n: '2晚 · 09-07、09-08', o: 7 },
     ];
     stays.forEach(s => {
       L.marker([s.lat, s.lng], { icon: icon('stay', '宿') })
@@ -169,6 +180,9 @@
     [
       { name: 'ZRH', lat: 47.4582, lng: 8.5555, t: 'plane', l: '✈' },
       { name: '琉森站', lat: 47.0502, lng: 8.3103, t: 'train', l: '站' },
+      { name: 'Interlaken Ost', lat: 46.6906, lng: 7.8692, t: 'train', l: '站' },
+      { name: 'Verona P.N.', lat: 45.4290, lng: 10.9820, t: 'train', l: '站' },
+      { name: 'Pisa Centrale', lat: 43.7085, lng: 10.3985, t: 'train', l: '站' },
       { name: '庫爾站', lat: 46.8530, lng: 9.5290, t: 'train', l: '站' },
       { name: '聖莫里茨站', lat: 46.4980, lng: 9.8460, t: 'train', l: '站' },
       { name: 'Tirano', lat: 46.2150, lng: 10.1680, t: 'train', l: '站' },
@@ -186,17 +200,18 @@
 
     // Swiss route
     L.polyline([
-      [47.4582, 8.5555], [47.0502, 8.3103], [46.8530, 9.5290],
+      [47.4582, 8.5555], [47.0502, 8.3103], [46.6863, 7.8632], [46.5474, 7.9808],
+      [46.6863, 7.8632], [46.8530, 9.5290],
       [46.6810, 9.6750], [46.4980, 9.8460], [46.2150, 10.1680], [45.4863, 9.2040]
     ], { color: '#c1121f', weight: 4, opacity: 0.9 })
-      .bindPopup('瑞士：ZRH→琉森→庫爾→Landwasser→Bernina→米蘭')
+      .bindPopup('瑞士：ZRH→琉森→因特拉肯（少女峰）→庫爾→Landwasser→Bernina→米蘭')
       .addTo(layers.route);
 
     L.polyline([
-      [45.4863, 9.2040], [45.4410, 12.3211], [43.7764, 11.2479],
-      [43.7230, 10.3966], [41.9009, 12.5018], [41.8003, 12.2389]
+      [45.4863, 9.2040], [45.4390, 10.9944], [45.4410, 12.3211], [43.7764, 11.2479],
+      [43.7230, 10.3966], [43.7764, 11.2479], [41.9009, 12.5018], [41.8003, 12.2389]
     ], { color: '#1d4e89', weight: 4, opacity: 0.85 })
-      .bindPopup('意大利：米蘭→威尼斯→翡冷翠→比薩→羅馬')
+      .bindPopup('意大利：米蘭→維羅納→威尼斯→翡冷翠→比薩（當日來回）→羅馬')
       .addTo(layers.italy);
 
     Object.values(layers).forEach(l => l.addTo(map));
@@ -215,9 +230,11 @@
 
     const focus = {
       lucerne: [[46.95, 8.15], [47.12, 8.45]],
+      interlaken: [[46.50, 7.75], [46.75, 8.05]],
       chur: [[46.80, 9.45], [46.90, 9.60]],
       landwasser: [[46.48, 9.45], [46.90, 9.95]],
       bernina: [[45.40, 9.05], [46.55, 10.30]],
+      verona: [[45.42, 10.95], [45.46, 11.02]],
       venice: [[45.42, 12.28], [45.46, 12.36]],
       florence: [[43.74, 11.22], [43.79, 11.29]],
       pisa: [[43.70, 10.35], [43.79, 11.30]],

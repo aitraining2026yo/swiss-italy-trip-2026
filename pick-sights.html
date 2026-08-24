@@ -377,9 +377,12 @@
           </div>
           <button type="button" class="chip-btn" id="btn-reset">重置全部選擇</button>
         </div>
+        <div class="note-bar" style="border-left:4px solid #2a7f5f">
+          <strong>📌 行程已定稿</strong>：本頁為<strong>候選清單</strong>，供比較用。實際 13 日行程見 <a href="plan-15day.html">精簡定稿</a> 或 <a href="index.html">完整計劃書</a>。已排入行程者：卡佩爾橋、皮拉圖斯、<strong>少女峰</strong>、Landwasser、Bernina、米蘭大教堂、維羅納、威尼斯、翡冷翠、<strong>比薩斜塔</strong>、羅馬、<strong>梵蒂岡</strong>。未排入者（聖莫里茨過夜、五漁村、Navigli 等）為超出時間的取捨。
+        </div>
         <div class="note-bar">
           已 <strong>skip</strong> 主要靠下雪才靚的地方（滑雪場冬景、冰雪童話鎮等）。
-          少女峰標為「可選」——8 月是<strong>終年冰川</strong>仍有雪，不是低地下雪；不喜歡高山凍可以 ✕。
+          <strong>少女峰已排入定稿</strong>（D4 · 08-30 全日）——8 月是<strong>終年冰川</strong>仍有雪，不是低地下雪。
           相片為夏日／晴天實景參考（授權圖），不保證同一天天氣。
         </div>
       </header>
@@ -762,7 +765,7 @@
         tags: ['海岸', '行山', '繞路'],
         tagClass: ['hot'],
         season: '8–9 月：最靚季節之一，但很熱好擠',
-        desc: '彩色崖岸村。夏末風景頂級，但同「北意高鐵線」稍繞，10 日行程難兼顧，當加分項。',
+        desc: '彩色崖岸村。夏末風景頂級，但同「北意高鐵線」稍繞，13 日行程難兼顧，當加分項。',
         photos: ['pick-photos/cinqueterre_1.jpg', 'pick-photos/cinqueterre_2.jpg'],
       },
       {
@@ -1034,7 +1037,7 @@
       maybed.forEach(p => { t += `· ${p.name}（${p.city}）\n`; });
       t += '\n✕ 不去（' + noped.length + '）\n';
       noped.forEach(p => { t += `· ${p.name}\n`; });
-      t += '\n— 用這份清單再排 10 日行程 —';
+      t += '\n— 用這份清單再排行程 —';
       return t;
     }
 
