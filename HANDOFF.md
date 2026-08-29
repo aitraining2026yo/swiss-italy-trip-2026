@@ -95,9 +95,9 @@ https://aitraining2026yo.github.io/swiss-italy-trip-2026/
 - **29.08.2026 · Swiss Travel Pass 二等**
 - 行程（08-29 班次已查實，與 08-28 完全相同，星期六不減班）：
   ```
-  07:34 Interlaken Ost    → Grindelwald Terminal 08:08   普通火車 R 61
+  07:34 Interlaken Ost    → Grindelwald Terminal 08:03   普通火車 R 61 · 月台 2B
   08:08 Grindelwald Term. → Eigergletscher                Eiger Express 纜車
-  08:43 Eigergletscher    → Jungfraujoch 09:11            齒軌火車 🔵訂位段
+  08:43 Eigergletscher    → Jungfraujoch 09:11            齒軌火車 月台 3 🔵訂位段
   ---
   13:45 Jungfraujoch      → Eigergletscher 14:11          🔵訂位段
   ```
@@ -233,9 +233,9 @@ ZRH 07:30 → 琉森當日遊（**不過夜**，行李寄車站櫃）→ 傍晚�
 07:00 早餐（已含）→ 退房
 07:10 出門，步行 20 分鐘往 Interlaken Ost
       ▸ 大行李存入自助儲物櫃
-07:34 R 61 → Grindelwald Terminal 08:08
+07:34 R 61（月台 2B）→ Grindelwald Terminal 08:03
 08:08 Eiger Express → Eigergletscher
-08:43 → Jungfraujoch 09:11              🔵 訂位段（不變）
+08:43 → Jungfraujoch 09:11（Eigergletscher 月台 3） 🔵 訂位段（不變）
 --- 少女峰 3 小時 04 分，預報雲量 0% ---
 12:15 落山                               🔵 訂位段（要改）
 12:54 Kleine Scheidegg → 13:14 開車
